@@ -270,9 +270,9 @@ public class KorpSRUSearchResultSet extends SRUSearchResultSet {
             throws XMLStreamException {
         AdvancedDataViewWriter helper =
                 new AdvancedDataViewWriter(AdvancedDataViewWriter.Unit.ITEM);
-        URI wordLayerId = URI.create("http://spraakbanken.gu.se/ns/fcs/layer/word");
-        URI lemmaLayerId = URI.create("http://spraakbanken.gu.se/ns/fcs/layer/lemma");
-        URI posLayerId = URI.create("http://spraakbanken.gu.se/ns/fcs/layer/pos");
+        URI wordLayerId = URI.create("http://clarin.dk/ns/fcs/layer/word");
+        URI lemmaLayerId = URI.create("http://clarin.dk/ns/fcs/layer/lemma");
+        URI posLayerId = URI.create("http://clarin.dk/ns/fcs/layer/pos");
 
 	Kwic kwic = resultSet.getKwic().get(currentRecordCursor - startRecord);
 	List<Token> tokens = kwic.getTokens();

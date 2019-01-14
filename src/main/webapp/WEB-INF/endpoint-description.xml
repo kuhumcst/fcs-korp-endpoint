@@ -1,66 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EndpointDescription xmlns="http://clarin.eu/fcs/endpoint-description"
-		     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		     xsi:schemaLocation="http://clarin.eu/fcs/endpoint-description ../../schema/Core_2/Endpoint-Description.xsd"
-		     version="2">
-  <Capabilities>
-    <Capability>http://clarin.eu/fcs/capability/basic-search</Capability>
-    <Capability>http://clarin.eu/fcs/capability/advanced-search</Capability>
-  </Capabilities>
-  <SupportedDataViews>
-    <SupportedDataView id="hits" delivery-policy="send-by-default">application/x-clarin-fcs-hits+xml</SupportedDataView>
-    <SupportedDataView id="adv" delivery-policy="send-by-default">application/x-clarin-fcs-adv+xml</SupportedDataView>
-    <SupportedDataView id="cmdi" delivery-policy="need-to-request">application/x-cmdi+xml</SupportedDataView>
-  </SupportedDataViews>
-  <SupportedLayers>
-    <SupportedLayer id="word" result-id="http://spraakbanken.gu.se/ns/fcs/layer/word">text</SupportedLayer>
-    <SupportedLayer id="lemma" result-id="http://spraakbanken.gu.se/ns/fcs/layer/lemma">lemma</SupportedLayer>
-    <SupportedLayer id="pos" result-id="http://spraakbanken.gu.se/ns/fcs/layer/pos">pos</SupportedLayer>
-  </SupportedLayers>
-  <Resources>
-    <Resource pid="hdl:10794/sbkorpusar">
-      <Title xml:lang="sv">Språkbankens korpusar</Title>
-      <Title xml:lang="en">The Språkbanken corpora</Title>
-      <Description xml:lang="sv">Korpusarna hos Språkbanken.</Description>
-      <Description xml:lang="en">The corpora at Språkbanken.</Description>
-      <LandingPageURI>https://spraakbanken.gu.se/resurser/corpus</LandingPageURI>
-      <Languages>
-        <Language>swe</Language>
-	<!--Language>fao</Language>
-	<Language>nld</Language>
-	<Language>som</Language>
-	<Language>spa</Language-->
-      </Languages>
-      <AvailableDataViews ref="hits adv"/>
-      <AvailableLayers ref="word lemma pos"/>
-      <Resources>
-	<Resource pid="hdl:10794/sbmoderna">
-	  <Title xml:lang="sv">Språkbankens moderna korpusar</Title>
-	  <Title xml:lang="en">The Språkbanken modern corpora</Title>
-	  <Description xml:lang="sv">De moderna korpusarna hos Språkbanken.</Description>
-	  <Description xml:lang="en">The modern corpora at Språkbanken.</Description>
-	  <LandingPageURI>https://spraakbanken.gu.se/resurser/moderna</LandingPageURI>
-	  <Languages>
-            <Language>swe</Language>
-	  </Languages>
-	  <AvailableDataViews ref="hits adv"/>
-	  <AvailableLayers ref="word lemma pos"/>
-	  <Resources>
-	    <Resource pid="hdl:10794/suc">
-	      <Title xml:lang="sv">SUC-korpusen</Title>
-	      <Title xml:lang="en">The SUC corpus</Title>
-	      <Description xml:lang="sv">Stockholm-Umeå-korpusen hos Språkbanken.</Description>
-	      <Description xml:lang="en">The Stockholm-Umeå corpus at Språkbanken.</Description>
-	      <LandingPageURI>https://spraakbanken.gu.se/resurser/suc</LandingPageURI>
-	      <Languages>
-		<Language>swe</Language>
-	      </Languages>
-	      <AvailableDataViews ref="hits adv"/>
-	      <AvailableLayers ref="word lemma pos"/>
-	    </Resource>
-	  </Resources>
-	</Resource>
-      </Resources>
-    </Resource>
-  </Resources>
+<EndpointDescription xmlns="http://clarin.eu/fcs/endpoint-description" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://clarin.eu/fcs/endpoint-description ../../schema/Core_2/Endpoint-Description.xsd" version="2">
+	<Capabilities>
+		<Capability>http://clarin.eu/fcs/capability/basic-search</Capability>
+		<Capability>http://clarin.eu/fcs/capability/advanced-search</Capability>
+	</Capabilities>
+	<SupportedDataViews>
+		<SupportedDataView id="hits" delivery-policy="send-by-default">application/x-clarin-fcs-hits+xml</SupportedDataView>
+		<SupportedDataView id="adv" delivery-policy="send-by-default">application/x-clarin-fcs-adv+xml</SupportedDataView>
+		<SupportedDataView id="cmdi" delivery-policy="need-to-request">application/x-cmdi+xml</SupportedDataView>
+	</SupportedDataViews>
+	<SupportedLayers>
+		<SupportedLayer id="word" result-id="http://clarin.dk/ns/fcs/layer/word">text</SupportedLayer>
+		<SupportedLayer id="lemma" result-id="http://clarin.dk/ns/fcs/layer/lemma">lemma</SupportedLayer>
+		<SupportedLayer id="pos" result-id="http://clarin.dk/ns/fcs/layer/pos">pos</SupportedLayer>
+	</SupportedLayers>
+	<Resources>
+		<Resource pid="hdl:20.500.12115/korpora">
+			<Title xml:lang="sv">CLARIN-DK Datacenter korpora</Title>
+			<Title xml:lang="en">CLARIN-DK Data Centre korpora</Title>
+			<Description xml:lang="dk">Korpora hos CLARIN-DK Datacenter</Description>
+			<Description xml:lang="en">The corpora at CLARIN-DK Data Centre</Description>
+			<LandingPageURI>https://repository.clarin.dk/repository/xmlui/discover?filter=corpus&filter_relational_operator=equals&filtertype=type</LandingPageURI>
+			<Languages>
+				<Language>dan</Language>
+			</Languages>
+			<AvailableDataViews ref="hits adv"/>
+			<AvailableLayers ref="word lemma pos"/>
+			<Resources>
+				<Resource pid="hdl:20.500.12115/LSPkorpora">
+					<Title xml:lang="dk">DK-CLARIN Fagsprogligt Korpus (LSP)</Title>
+					<Title xml:lang="en">DK-CLARIN LSP (Language for Special Purposes) corpus</Title>
+					<Description xml:lang="dk">Det omfatter tekster på i alt ca. 11 mio. løbende ord fordelt på 7 domæner nemlig sundhed og medicin, klima og miljø, økonomi, landbrug, it, bygge- og anlæg samt nanoteknologi.</Description>
+					<Description xml:lang="en">The DK-CLARIN LSP corpus comprises 11 M tokens from the period 2000-2010, complementing the existing Danish general language corpora.</Description>
+					<LandingPageURI>https://cst.ku.dk//resurser/fagsprogligt-korpus/</LandingPageURI>
+					<Languages>
+						<Language>dan</Language>
+					</Languages>
+					<AvailableDataViews ref="hits adv"/>
+					<AvailableLayers ref="word lemma pos"/>
+					<Resources>
+						<Resource pid="hdl:20.500.12115/15">
+							<Title xml:lang="dk">DK-CLARIN Fagsprogligt Korpus - It</Title>
+							<Title xml:lang="en">DK-CLARIN LSP Corpus - IT domain</Title>
+							<Description xml:lang="dk">Korpusset blev udviklet som en del af det danske CLARIN-projekt (DK-CLARIN).</Description>
+							<Description xml:lang="en">This corpus was collected and processedin the Danish CLARIN project (DK-CLARIN).</Description>
+							<LandingPageURI>https://repository.clarin.dk/repository/xmlui/handle/20.500.12115/15</LandingPageURI>
+							<Languages>
+								<Language>dan</Language>
+							</Languages>
+							<AvailableDataViews ref="hits adv"/>
+							<AvailableLayers ref="word lemma pos"/>
+						</Resource>
+					</Resources>
+				</Resource>
+			</Resources>
+		</Resource>
+	</Resources>
 </EndpointDescription>

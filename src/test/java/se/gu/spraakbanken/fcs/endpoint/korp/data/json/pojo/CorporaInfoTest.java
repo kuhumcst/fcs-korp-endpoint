@@ -179,7 +179,7 @@ public class CorporaInfoTest {
 
 	CorporaInfo ci4 = null;
 	String roundTripString = "";
-	String wsString ="https://spraakbanken.gu.se/ws/korp/v6/?";
+	String wsString ="https://alf.hum.ku.dk/korp/cgi/korp.cgi?";
 	String queryString = "indent=4&command=info&corpus=ROMI,PAROLE";
 
         try {

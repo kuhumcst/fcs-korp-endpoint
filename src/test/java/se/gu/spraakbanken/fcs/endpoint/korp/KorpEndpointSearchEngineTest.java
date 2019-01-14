@@ -158,23 +158,23 @@ public class KorpEndpointSearchEngineTest {
     @Test
     public void getLayersFromDescription() throws SRUConfigException {
 	System.out.println(sed.getSupportedLayers());
-	assertEquals("http://spraakbanken.gu.se/ns/fcs/layer/word", sed.getSupportedLayers().get(0).getResultId().toString());
+	assertEquals("http://clarin.dk/ns/fcs/layer/word", sed.getSupportedLayers().get(0).getResultId().toString());
 	assertEquals("lemma", sed.getSupportedLayers().get(1).getType().toString());
     }
 
     @Test
     public void getResourcesFromDescription() throws SRUException {
-	List<ResourceInfo> riList = sed.getResourceList("hdl:10794/sbmoderna");
+	List<ResourceInfo> riList = sed.getResourceList("hdl:20.500.12115/LSPkorpora");
 	System.out.println(riList.get(0).getTitle());
 	assertEquals("hits", riList.get(0).getAvailableDataViews().get(0).getIdentifier());
 	assertEquals("SEND_BY_DEFAULT", riList.get(0).getAvailableDataViews().get(0).getDeliveryPolicy().toString());
 	assertEquals("application/x-clarin-fcs-hits+xml", riList.get(0).getAvailableDataViews().get(0).getMimeType());
-	assertEquals("https://spraakbanken.gu.se/resurser/suc", riList.get(0).getLandingPageURI());
+	assertEquals("https://repository.clarin.dk/repository/xmlui/handle/20.500.12115/15", riList.get(0).getLandingPageURI());
 	assertTrue(riList.get(0).hasAvailableLayers());
 	assertEquals("word", riList.get(0).getAvailableLayers().get(0).getId());
 	assertEquals("text", riList.get(0).getAvailableLayers().get(0).getType());
 	assertNull(riList.get(0).getAvailableLayers().get(0).getQualifier());
-	assertEquals("swe", riList.get(0).getLanguages().get(0));
+	assertEquals("dan", riList.get(0).getLanguages().get(0));
 	assertFalse(riList.get(0).hasSubResources());
     }
 
