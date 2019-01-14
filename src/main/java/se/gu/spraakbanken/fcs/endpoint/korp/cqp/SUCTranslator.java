@@ -21,54 +21,38 @@ public class SUCTranslator {
 
     private static Map<String, List<String>> createToSuc() {
 	Map<String, List<String>> suc = new HashMap<String, List<String>>();
-	suc.put("NOUN", Arrays.asList("NN"));
-	suc.put("PROPN", Arrays.asList("PM"));
-	suc.put("ADJ", Arrays.asList("JJ", "PC", "RO"));
-	suc.put("VERB", Arrays.asList("VB", "PC"));
-	suc.put("AUX", Arrays.asList("VB"));
-	suc.put("NUM", Arrays.asList("RG", "RO")); // No RO?
-	suc.put("PRON", Arrays.asList("PN", "PS", "HP", "HS")); // No PS, HS?
-	suc.put("DET", Arrays.asList("DT", "HD", "HS", "PS"));
-	suc.put("PART", Arrays.asList("IE"));
-	suc.put("ADV", Arrays.asList("AB", "HA", "PL")); // No PL?
-	suc.put("ADP", Arrays.asList("PL", "PP")); // No PL?
-	suc.put("CCONJ", Arrays.asList("KN"));
-	suc.put("SCONJ", Arrays.asList("SN"));
-	suc.put("INTJ", Arrays.asList("IN"));
-	suc.put("PUNCT", Arrays.asList("MAD", "MID", "PAD"));
-	suc.put("X", Arrays.asList("UO"));
+
+	//LSP
+	suc.put("NOUN", Arrays.asList("N"));
+	suc.put("PROPN", Arrays.asList("PROPN"));
+	suc.put("ADJ", Arrays.asList("ADJ"));
+	suc.put("VERB", Arrays.asList("V")); //  "vb" ?
+	suc.put("NUM", Arrays.asList("NUM"));
+	suc.put("PRON", Arrays.asList("PRON"));
+	suc.put("ADV", Arrays.asList("ADV")); // "AB" ?
+	suc.put("ADP", Arrays.asList("PREP"));
+	suc.put("CCONJ", Arrays.asList("CONJ", "SCONJ"));
+	suc.put("INTJ", Arrays.asList("INTERJ"));
+	suc.put("X", Arrays.asList("OTHER", "UNIK"));
+
 	return Collections.unmodifiableMap(suc);
     }
 
     private static Map<String, List<String>> createToUd17() {
 	Map<String, List<String>> ud17 = new HashMap<String, List<String>>();
-	// fixme! - check lemma/msd for toUd17
-	ud17.put("NN", Arrays.asList("NOUN"));
-	ud17.put("PM", Arrays.asList("PROPN"));
-	ud17.put("VB", Arrays.asList("VERB", "AUX"));
-	ud17.put("IE", Arrays.asList("PART"));
-	ud17.put("PC", Arrays.asList("VERB")); // No ADJ?
-	ud17.put("PL", Arrays.asList("PART")); // No ADV, ADP?
-	ud17.put("PN", Arrays.asList("PRON"));
-	ud17.put("PS", Arrays.asList("DET")); // No PRON?
-	ud17.put("HP", Arrays.asList("PRON"));
-	ud17.put("HS", Arrays.asList("DET")); // No PRON?
-	ud17.put("DT", Arrays.asList("DET"));
-	ud17.put("HD", Arrays.asList("DET"));
-	ud17.put("JJ", Arrays.asList("ADJ"));
-	ud17.put("AB", Arrays.asList("ADV"));
-	ud17.put("HA", Arrays.asList("ADV"));
-	ud17.put("KN", Arrays.asList("CCONJ"));
-	ud17.put("SN", Arrays.asList("SCONJ"));
-	ud17.put("PP", Arrays.asList("ADP"));
-	ud17.put("RG", Arrays.asList("NUM"));
-	ud17.put("RO", Arrays.asList("ADJ")); // No NUM?
-	ud17.put("IN", Arrays.asList("INTJ"));
-	// Could be any PoS, most probably a noun /ljo
-	ud17.put("UO", Arrays.asList("X"));
-	ud17.put("MAD", Arrays.asList("PUNCT"));
-	ud17.put("MID", Arrays.asList("PUNCT"));
-	ud17.put("PAD", Arrays.asList("PUNCT"));
+	
+	//LSP
+	ud17.put("N", Arrays.asList("NOUN"));
+	ud17.put("PROPN", Arrays.asList("PROPN"));
+	ud17.put("V", Arrays.asList("VERB")); // "vb" ?
+	ud17.put("ADJ", Arrays.asList("ADJ"));
+	ud17.put("NUM", Arrays.asList("NUM"));
+	ud17.put("PRON", Arrays.asList("PRON"));
+	ud17.put("ADV", Arrays.asList("ADV"));
+	ud17.put("PREP", Arrays.asList("ADP"));
+	ud17.put("CONJ", Arrays.asList("CCONJ", "SCONJ"));
+	ud17.put("INTERJ", Arrays.asList("INTJ"));
+	ud17.put("OTHER", Arrays.asList("X"));
 
 	return Collections.unmodifiableMap(ud17);
     }
