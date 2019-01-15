@@ -16,9 +16,9 @@
 		<SupportedLayer id="pos" result-id="http://clarin.dk/ns/fcs/layer/pos">pos</SupportedLayer>
 	</SupportedLayers>
 	<Resources>
-		<Resource pid="hdl:20.500.12115/korpora">
-			<Title xml:lang="sv">CLARIN-DK Datacenter korpora</Title>
-			<Title xml:lang="en">CLARIN-DK Data Centre korpora</Title>
+		<Resource pid="hdl:20.500.12115/3">
+			<Title xml:lang="dk">CLARIN-DK Korpora</Title>
+			<Title xml:lang="en">CLARIN-DK Corpora</Title>
 			<Description xml:lang="dk">Korpora hos CLARIN-DK Datacenter</Description>
 			<Description xml:lang="en">The corpora at CLARIN-DK Data Centre</Description>
 			<LandingPageURI>https://repository.clarin.dk/repository/xmlui/discover?filter=corpus&filter_relational_operator=equals&filtertype=type</LandingPageURI>
@@ -30,22 +30,34 @@
 			<Resources>
 				<Resource pid="hdl:20.500.12115/LSPkorpora">
 					<Title xml:lang="dk">DK-CLARIN Fagsprogligt Korpus (LSP)</Title>
-					<Title xml:lang="en">DK-CLARIN LSP (Language for Special Purposes) corpus</Title>
+					<Title xml:lang="en">DK-CLARIN LSP (Language for Special Purposes) Corpus</Title>
 					<Description xml:lang="dk">Det omfatter tekster på i alt ca. 11 mio. løbende ord fordelt på 7 domæner nemlig sundhed og medicin, klima og miljø, økonomi, landbrug, it, bygge- og anlæg samt nanoteknologi.</Description>
 					<Description xml:lang="en">The DK-CLARIN LSP corpus comprises 11 M tokens from the period 2000-2010, complementing the existing Danish general language corpora.</Description>
-					<LandingPageURI>https://cst.ku.dk//resurser/fagsprogligt-korpus/</LandingPageURI>
+					<LandingPageURI>https://cst.ku.dk/english/resurser/fagsprogligt-korpus/</LandingPageURI>
 					<Languages>
 						<Language>dan</Language>
 					</Languages>
 					<AvailableDataViews ref="hits adv"/>
 					<AvailableLayers ref="word lemma pos"/>
 					<Resources>
-						<Resource pid="hdl:20.500.12115/15">
-							<Title xml:lang="dk">DK-CLARIN Fagsprogligt Korpus - It</Title>
-							<Title xml:lang="en">DK-CLARIN LSP Corpus - IT domain</Title>
+						<Resource pid="hdl:20.500.12115/9">
+							<Title xml:lang="dk">DK-CLARIN Fagsprogligt Korpus - Byggeri og anlæg</Title>
+							<Title xml:lang="en">DK-CLARIN LSP Corpus - Construction domain</Title>
 							<Description xml:lang="dk">Korpusset blev udviklet som en del af det danske CLARIN-projekt (DK-CLARIN).</Description>
-							<Description xml:lang="en">This corpus was collected and processedin the Danish CLARIN project (DK-CLARIN).</Description>
-							<LandingPageURI>https://repository.clarin.dk/repository/xmlui/handle/20.500.12115/15</LandingPageURI>
+							<Description xml:lang="en">Texts in the Construction Domain come from Statens Byggeforskningsinstitut, Erhvervs- og byggestyrelsen and Murerfagets Oplysningsråd.</Description>
+							<LandingPageURI>https://repository.clarin.dk/repository/xmlui/handle/20.500.12115/9</LandingPageURI>
+							<Languages>
+								<Language>dan</Language>
+							</Languages>
+							<AvailableDataViews ref="hits adv"/>
+							<AvailableLayers ref="word lemma pos"/>
+						</Resource>
+						<Resource pid="hdl:20.500.12115/17">
+							<Title xml:lang="dk">DK-CLARIN Fagsprogligt Korpus - Landbrug</Title>
+							<Title xml:lang="en">DK-CLARIN LSP Corpus - Agriculture domain</Title>
+							<Description xml:lang="dk">Korpusset blev udviklet som en del af det danske CLARIN-projekt (DK-CLARIN).</Description>
+							<Description xml:lang="en">Texts in the Agriculture domain come from Danmarks JordbrugsForskning.</Description>
+							<LandingPageURI>https://repository.clarin.dk/repository/xmlui/handle/20.500.12115/17</LandingPageURI>
 							<Languages>
 								<Language>dan</Language>
 							</Languages>
