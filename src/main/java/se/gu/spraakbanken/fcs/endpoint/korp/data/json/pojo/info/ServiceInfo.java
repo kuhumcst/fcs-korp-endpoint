@@ -212,7 +212,7 @@ public class ServiceInfo {
 	return openCorpora;
     }
 
-    public static List<String> getLSPCorpora() {
+    public static List<String> getModernCorpora() {
 	List<String> modernCorpora = new ArrayList<String>();
 	List<String> openCorpora = ServiceInfo.getOpenCorpora();
 	for (String corpus : openCorpora) {

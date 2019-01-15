@@ -135,7 +135,7 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
             SRUQueryParserRegistry.Builder queryParserBuilder,
             Map<String, String> params) throws SRUConfigException {
 	LOG.info("KorpEndpointSearchEngine::doInit {}", config.getPort());
-	List<String> openCorpora = ServiceInfo.getLSPCorpora();
+	List<String> openCorpora = ServiceInfo.getModernCorpora();
 	openCorporaInfo = CorporaInfo.getCorporaInfo(openCorpora);
     }
 
@@ -416,11 +416,11 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
 		}
 	    }
 	    if (hasFcsContextCorpus && !"".equals(fcsContextCorpus)) {
-		if (!"hdl%3A20.500.12115%2FLSPkorpora".equals(fcsContextCorpus)) {
+		if (!"hdl%3A20.500.12115%2F17".equals(fcsContextCorpus)) {
 		    LOG.info("Loading specific corpus data: '{}'", fcsContextCorpus);
 		    //getCorporaInfo();
 		}
-		// hdl%3A20.500.12115%2FLSPkorpora is the default
+		// hdl%3A20.500.12115%2F17 is the default
 	    }
 
 
