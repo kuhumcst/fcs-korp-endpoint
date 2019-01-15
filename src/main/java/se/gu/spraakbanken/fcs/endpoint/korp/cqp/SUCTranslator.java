@@ -32,6 +32,7 @@ public class SUCTranslator {
 	suc.put("CCONJ", Arrays.asList("CONJ"));
 	suc.put("SCONJ", Arrays.asList("CONJ"));
 	suc.put("INTJ", Arrays.asList("INTERJ"));
+	suc.put("PART", Arrays.asList("UNIK"));
 	suc.put("OTHER", Arrays.asList("X"));
 	return Collections.unmodifiableMap(suc);
     }
@@ -48,6 +49,7 @@ public class SUCTranslator {
 	ud17.put("PREP", Arrays.asList("ADP"));
 	ud17.put("CONJ", Arrays.asList("CCONJ", "SCONJ"));
 	ud17.put("INTERJ", Arrays.asList("INTJ"));
+	ud17.put("UNIK", Arrays.asList("PART"));
 	ud17.put("X", Arrays.asList("OTHER"));
 
 	return Collections.unmodifiableMap(ud17);
