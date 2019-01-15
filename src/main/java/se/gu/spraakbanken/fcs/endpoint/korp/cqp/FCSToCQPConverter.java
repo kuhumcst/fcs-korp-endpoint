@@ -221,7 +221,7 @@ public class FCSToCQPConverter {
     }
 
     private static String translatePos(final String layerIdentifier, final String operator, final String pos) throws SRUException {
-	List<String> lspT = LSPTranslator.toLSP(pos);
+	List<String> sucT = SUCTranslator.toSUC(pos);
 	StringBuffer buf = new StringBuffer();
 
 	buf.append(layerIdentifier);
@@ -229,12 +229,12 @@ public class FCSToCQPConverter {
 	buf.append(operator);
 	buf.append(" '");
 
-	if (lspT.size() == 1) {
-	    buf.append(lspT.get(0));
+	if (sucT.size() == 1) {
+	    buf.append(sucT.get(0));
 	} else {
 	    int i = 0;
 	    buf.append("(");
-	    for (String s : lspT) {
+	    for (String s : sucT) {
 		if (i > 0) {
 		    buf.append("|");
 		}
