@@ -43,50 +43,43 @@ public class ServiceInfo {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    // TODO: expand to all modern corpora
-    private static final List<String> LSP_CORPORA = Collections.unmodifiableList(Arrays.asList(
+    // MODERN DANISH CORPORA
+    private static final List<String> MODERN_CORPORA = Collections.unmodifiableList(Arrays.asList(
         "LSPAGRICULTUREJORDBRUGSFORSKNING",
-        "LSPBYGGERI",
-        "LSPBYGGERI1",
-        "LSPBYGGERI3",
-        "LSPBYGGERI3C",
-        "LSPBYGGERIA",
-        "LSPBYGGERIAM",
-        "LSPBYGGERIAMA",
-        "LSPBYGGERIT",
-        "LSPCLIMATEAKTUELNATURVIDENSKAB",
-        "LSPCLIMATEDMU",
-        "LSPCLIMATEHOVEDLAND",
-        "LSPCLIMATEOEKRAAD",
+        //"LSPCLIMATEAKTUELNATURVIDENSKAB",
+        //"LSPCLIMATEDMU",
+        // "LSPCLIMATEHOVEDLAND",
+        // "LSPCLIMATEOEKRAAD",
         "LSPCONSTRUCTIONEB1",
         "LSPCONSTRUCTIONEB2",
         "LSPCONSTRUCTIONMURO",
-        "LSPCONSTRUCTIONSBI",
-        "LSPECONOMICSEOS",
-        "LSPECONOMICSFT1",
-        "LSPECONOMICSFT2",
-        "LSPECONOMICSSKAT",
-        "LSPECONUMICSEOS",
-        "LSPHEALTH1AKTUELNATURVIDENSKAB",
-        "LSPHEALTH1LIBRISSUNDHED",
-        "LSPHEALTH1NETPATIENT",
-        "LSPHEALTH1REGIONH",
-        "LSPHEALTH1SOEFARTSSTYRELSEN",
-        "LSPHEALTH1SST",
-        "LSPHEALTH2SUNDHEDDK1",
-        "LSPHEALTH2SUNDHEDDK2",
-        "LSPHEALTH2SUNDHEDDK3",
-        "LSPHEALTH2SUNDHEDDK4",
-        "LSPHEALTH2SUNDHEDDK5",
-        "LSPIECONUMICSEOS",
-        "LSPITAKTUELNATURVIDENSKAB",
-        "LSPITLIBRIS",
-        "LSPITOO",
-        "LSPNANOAKTUELNATURVIDENSKAB",
-        "LSPNANONANO1",
-        "LSPNANONANO2",
-        "LSPNANONANO3",
-        "LSPNANONANO4"));
+        "LSPCONSTRUCTIONSBI"
+        //"LSPECONOMICSEOS",
+        //"LSPECONOMICSFT1",
+        //"LSPECONOMICSFT2",
+        // "LSPECONOMICSSKAT",
+        // "LSPECONUMICSEOS",
+        // "LSPHEALTH1AKTUELNATURVIDENSKAB",
+        // "LSPHEALTH1LIBRISSUNDHED",
+        // "LSPHEALTH1NETPATIENT",
+        // "LSPHEALTH1REGIONH",
+        // "LSPHEALTH1SOEFARTSSTYRELSEN",
+        // "LSPHEALTH1SST",
+        // "LSPHEALTH2SUNDHEDDK1",
+        // "LSPHEALTH2SUNDHEDDK2",
+        // "LSPHEALTH2SUNDHEDDK3",
+        // "LSPHEALTH2SUNDHEDDK4",
+        // "LSPHEALTH2SUNDHEDDK5",
+        // "LSPIECONUMICSEOS",
+        // "LSPITAKTUELNATURVIDENSKAB",
+        // "LSPITLIBRIS",
+        // "LSPITOO",
+        // "LSPNANOAKTUELNATURVIDENSKAB",
+        // "LSPNANONANO1",
+        // "LSPNANONANO2",
+        // "LSPNANONANO3",
+        // "LSPNANONANO4"
+        ));
 
     /**
      *
@@ -220,14 +213,14 @@ public class ServiceInfo {
     }
 
     public static List<String> getLSPCorpora() {
-	List<String> lspCorpora = new ArrayList<String>();
+	List<String> modernCorpora = new ArrayList<String>();
 	List<String> openCorpora = ServiceInfo.getOpenCorpora();
 	for (String corpus : openCorpora) {
-		if (LSP_CORPORA.contains(corpus)) {
-		    lspCorpora.add(corpus);
+		if (MODERN_CORPORA.contains(corpus)) {
+		    modernCorpora.add(corpus);
 		}
 	}
-	return lspCorpora;
+	return modernCorpora;
     }
 
 }
