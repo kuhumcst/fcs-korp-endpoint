@@ -135,7 +135,7 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
             SRUQueryParserRegistry.Builder queryParserBuilder,
             Map<String, String> params) throws SRUConfigException {
 	LOG.info("KorpEndpointSearchEngine::doInit {}", config.getPort());
-	List<String> openCorpora = ServiceInfo.getModernCorpora();
+	List<String> openCorpora = ServiceInfo.getLSPCorpora();
 	openCorporaInfo = CorporaInfo.getCorporaInfo(openCorpora);
     }
 
@@ -416,7 +416,7 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
 		}
 	    }
 	    if (hasFcsContextCorpus && !"".equals(fcsContextCorpus)) {
-		if (!"hdl%3A20.500.12115%2FLSPkorpora".equals(fcsContextCorpus)) { //TODO: LSPconstruction default
+		if (!"hdl%3A20.500.12115%2FLSPkorpora".equals(fcsContextCorpus)) {
 		    LOG.info("Loading specific corpus data: '{}'", fcsContextCorpus);
 		    //getCorporaInfo();
 		}
@@ -440,7 +440,6 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
 	String startParam = "&start=" + (startRecord == 1 ? 0 : startRecord - 1);
 	String endParam = "&end=" + (maximumRecords == 0 ? 250 : startRecord - 1 + maximumRecords - 1);
 	String corpusParam = "&corpus=";
-	    //"SUC2";
 	String corpusParamValues = CorporaInfo.getCorpusParameterValues(openCorporaInfo.getCorpora().keySet());
         try {
 	    URL korp = new URL(wsString + queryString + URLEncoder.encode(cqpQuery, "UTF-8") + startParam + endParam + corpusParam + corpusParamValues);
