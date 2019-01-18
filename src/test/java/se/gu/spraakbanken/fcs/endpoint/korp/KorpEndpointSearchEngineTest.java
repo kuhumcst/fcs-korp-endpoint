@@ -196,7 +196,7 @@ public class KorpEndpointSearchEngineTest {
     public void convertFCSSimple() throws SRUException {
 	Map<String, String> params = new HashMap<String, String>();
 	final String query = "[word = 'rådgivning' & pos = 'NOUN']";
-	final String res = "[word = 'rådgivning' & pos = 'NN']";
+	final String res = "[word = 'rådgivning' & pos = 'N']";
 	params.put("query", query);
 	SRUDiagnosticList diagnostics = new Diagnostic();
 	final String resActual = FCSToCQPConverter.makeCQPFromFCS((new FCSQueryParser()).parseQuery(SRUVersion.VERSION_2_0, params, diagnostics));
