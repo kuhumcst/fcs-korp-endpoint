@@ -84,7 +84,7 @@ public class KorpEndpointSearchEngineTest {
 	tester.setContextPath("http://localhost:8082/sru-server");
 	tester.setResourceBase("src/main/webapp");
 	tester.setClassLoader(SRUServerServlet.class.getClassLoader());
-        holder = tester.addServlet(SRUServerServlet.class, "/sru");
+    holder = tester.addServlet(SRUServerServlet.class, "/sru");
 	params = new HashMap<String, String>();
 	params.put(SRUServerConfig.SRU_TRANSPORT, "http");
 	params.put(SRUServerConfig.SRU_HOST, "127.0.0.1");
@@ -317,7 +317,7 @@ public class KorpEndpointSearchEngineTest {
 	kese.doInit(config, new SRUQueryParserRegistry.Builder().register(new FCSQueryParser()), params);
 	CorporaInfo openCorporaInfo = kese.getCorporaInfo();
 	final String query = "[word = 'og'][pos = 'NOUN']";
-	final String cqpQuery = "[word = 'og'][pos = 'N']";
+	final String cqpQuery = "[word = 'og'][pos = 'NOUN']";
 
 	Query queryRes = kese.makeQuery(cqpQuery, openCorporaInfo, 0, 25);
 	KorpSRUSearchResultSet kssrs = new KorpSRUSearchResultSet(config, diagnostics, queryRes, query, openCorporaInfo);
