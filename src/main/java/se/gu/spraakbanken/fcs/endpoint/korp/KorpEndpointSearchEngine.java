@@ -416,11 +416,11 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
 		}
 	    }
 	    if (hasFcsContextCorpus && !"".equals(fcsContextCorpus)) {
-		if (!"hdl%3A20.500.12115%2F17".equals(fcsContextCorpus)) {
+		if (!"hdl%3A20.500.12115%2F9".equals(fcsContextCorpus)) {
 		    LOG.info("Loading specific corpus data: '{}'", fcsContextCorpus);
-		    //getCorporaInfo();
+            //TODO getCorporaInfo();
 		}
-		// hdl%3A20.500.12115%2F17 is the default
+		// hdl%3A20.500.12115%2F9 is the default
 	    }
 
 

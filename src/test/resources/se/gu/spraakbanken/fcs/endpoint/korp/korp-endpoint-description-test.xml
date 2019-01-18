@@ -21,7 +21,7 @@
 			<Title xml:lang="en">CLARIN-DK Corpora</Title>
 			<Description xml:lang="dk">Korpora hos CLARIN-DK Datacenter</Description>
 			<Description xml:lang="en">The corpora at CLARIN-DK Data Centre</Description>
-			<LandingPageURI>https://repository.clarin.dk/repository/xmlui/discover?filter=corpus&filter_relational_operator=equals&filtertype=type</LandingPageURI>
+			<LandingPageURI>https://repository.clarin.dk/repository/xmlui/discover?filter=corpus&amp;filter_relational_operator=equals&amp;filtertype=type</LandingPageURI>
 			<Languages>
 				<Language>dan</Language>
 			</Languages>
@@ -70,5 +70,3 @@
 		</Resource>
 	</Resources>
 </EndpointDescription>
-
-
