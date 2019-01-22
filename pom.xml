@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.gu.spraakbanken.fcs.endpoint.korp</groupId>
   <artifactId>fcs-korp-endpoint</artifactId>
@@ -11,13 +9,12 @@
   <description>
     A Korp CLARIN FCS endpoint implementation as an example of a CLARIN FCS 2.0 endpoint.
   </description>
-
   <properties>
     <!-- project settings -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- plug-in settings -->
-    <maven.compiler.source>1.6</maven.compiler.source>
-    <maven.compiler.target>1.6</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <!-- versions of common dependencies -->
     <slf4j.version>1.7.12</slf4j.version>
   </properties>
@@ -39,6 +36,12 @@
       <name>Leif-Jöran Olsson</name>
       <organization>Språkbanken</organization>
       <url>https://spraakbanken.gu.se/</url>
+    </developer>
+    <developer>
+      <id>seaton</id>
+      <name>Mitchell Seaton</name>
+      <organization>Center for Language Technology, Department of Nordic Research, University of Copenhagen</organization>
+      <url>https://cst.ku.dk/</url>
     </developer>
   </developers>
   <dependencies>
@@ -89,7 +92,6 @@
           <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
@@ -103,7 +105,6 @@
           </execution>
         </executions>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
@@ -129,7 +130,6 @@
       </plugin-->
     </plugins>
   </build>
-
   <repositories>
     <repository>
       <id>CLARIN</id>
@@ -139,7 +139,6 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-
     <repository>
       <id>CLARIN-snapshot</id>
       <name>CLARIN Snapshot Repository</name>
@@ -149,13 +148,11 @@
       </snapshots>
     </repository>
   </repositories>
-
   <distributionManagement>
     <snapshotRepository>
       <id>CLARIN-snapshot</id>
       <url>https://nexus.clarin.eu/content/repositories/clarin-snapshot</url>
     </snapshotRepository>
-
     <repository>
       <id>CLARIN</id>
       <url>https://nexus.clarin.eu/content/repositories/Clarin</url>
