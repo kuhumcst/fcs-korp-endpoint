@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.gu.spraakbanken.fcs.endpoint.korp</groupId>
   <artifactId>fcs-korp-endpoint</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1.1</version>
   <packaging>jar</packaging>
   <name>A Korp CLARIN FCS 2.0 endpoint</name>
   <description>
@@ -69,8 +69,8 @@
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.0</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
