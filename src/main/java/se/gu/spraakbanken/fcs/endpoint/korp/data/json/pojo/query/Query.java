@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -13,14 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-	"corpus_hits",
-	"corpus_order",
-	"hits",
-	"kwic",
-	"querydata",
-	"time"
-})
+@JsonPropertyOrder({"corpus_hits", "corpus_order", "hits", "kwic", "querydata", "time"})
 public class Query {
 
     @JsonProperty("corpus_hits")
@@ -45,17 +37,17 @@ public class Query {
      */
     @JsonProperty("corpusHits")
     public Integer getCorpusHits(final String corpusId) {
-	return corpusHits.get(corpusId);
+        return corpusHits.get(corpusId);
     }
 
     /**
      *
-     * @param corpusId The corpusId
+     * @param corpusId   The corpusId
      * @param corpusHits The corpusHits for corpus corpusId
      */
     @JsonProperty("corpusHits")
     public void setCorpusHits(final String corpusId, final Integer corpusHits) {
-	this.corpusHits.put(corpusId, corpusHits);
+        this.corpusHits.put(corpusId, corpusHits);
     }
 
     /**
@@ -64,7 +56,7 @@ public class Query {
      */
     @JsonProperty("corpus_hits")
     public Map getCorpusHits() {
-	return corpusHits;
+        return corpusHits;
     }
 
     /**
@@ -73,7 +65,7 @@ public class Query {
      */
     @JsonProperty("corpus_hits")
     public void setCorpusHits(final Map corpusHits) {
-	this.corpusHits = corpusHits;
+        this.corpusHits = corpusHits;
     }
 
     /**
@@ -82,7 +74,7 @@ public class Query {
      */
     @JsonProperty("corpus_order")
     public List<String> getCorpusOrder() {
-	return corpusOrder;
+        return corpusOrder;
     }
 
     /**
@@ -91,7 +83,7 @@ public class Query {
      */
     @JsonProperty("corpus_order")
     public void setCorpusOrder(List<String> corpusOrder) {
-	this.corpusOrder = corpusOrder;
+        this.corpusOrder = corpusOrder;
     }
 
     /**
@@ -100,10 +92,10 @@ public class Query {
      */
     @JsonProperty("hits")
     public Integer getHits() {
-	if (hits != null) {
-	    return hits;
-	}
-	return new Integer("-1");
+        if (hits != null) {
+            return hits;
+        }
+        return new Integer("-1");
     }
 
     /**
@@ -112,7 +104,7 @@ public class Query {
      */
     @JsonProperty("hits")
     public void setHits(Integer hits) {
-	this.hits = hits;
+        this.hits = hits;
     }
 
     /**
@@ -121,7 +113,7 @@ public class Query {
      */
     @JsonProperty("kwic")
     public List<Kwic> getKwic() {
-	return kwic;
+        return kwic;
     }
 
     /**
@@ -130,7 +122,7 @@ public class Query {
      */
     @JsonProperty("kwic")
     public void setKwic(List<Kwic> kwic) {
-	this.kwic = kwic;
+        this.kwic = kwic;
     }
 
     /**
@@ -139,7 +131,7 @@ public class Query {
      */
     @JsonProperty("querydata")
     public String getQuerydata() {
-	return querydata;
+        return querydata;
     }
 
     /**
@@ -148,7 +140,7 @@ public class Query {
      */
     @JsonProperty("querydata")
     public void setQuerydata(String querydata) {
-	this.querydata = querydata;
+        this.querydata = querydata;
     }
 
     /**
@@ -157,7 +149,7 @@ public class Query {
      */
     @JsonProperty("time")
     public Double getTime() {
-	return time;
+        return time;
     }
 
     /**
@@ -166,16 +158,16 @@ public class Query {
      */
     @JsonProperty("time")
     public void setTime(Double time) {
-	this.time = time;
+        this.time = time;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 }

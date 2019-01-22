@@ -12,15 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-	"Charset",
-	"FirstDate",
-	"LastDate",
-	"Saldo",
-	"Sentences",
-	"Size",
-	"Updated"
-})
+@JsonPropertyOrder({"Charset", "FirstDate", "LastDate", "Saldo", "Sentences", "Size", "Updated"})
 
 public class CorpusMetaInfo {
 
@@ -43,151 +35,137 @@ public class CorpusMetaInfo {
 
     /**
      *
-     * @return
-     * The Charset
+     * @return The Charset
      */
     @JsonProperty("Charset")
     public String getCharset() {
-	return Charset;
+        return Charset;
     }
 
     /**
      *
-     * @param Charset
-     * The Charset
+     * @param Charset The Charset
      */
     @JsonProperty("Charset")
     public void setCharset(String Charset) {
-	this.Charset = Charset;
+        this.Charset = Charset;
     }
 
     /**
      *
-     * @return
-     * The FirstDate
+     * @return The FirstDate
      */
     @JsonProperty("FirstDate")
     public String getFirstDate() {
-	return FirstDate;
+        return FirstDate;
     }
 
     /**
      *
-     * @param FirstDate
-     * The FirstDate
+     * @param FirstDate The FirstDate
      */
     @JsonProperty("FirstDate")
     public void setFirstDate(String FirstDate) {
-	this.FirstDate = FirstDate;
+        this.FirstDate = FirstDate;
     }
 
     /**
      *
-     * @return
-     * The LastDate
+     * @return The LastDate
      */
     @JsonProperty("LastDate")
     public String getLastDate() {
-	return LastDate;
+        return LastDate;
     }
 
     /**
      *
-     * @param LastDate
-     * The LastDate
+     * @param LastDate The LastDate
      */
     @JsonProperty("LastDate")
     public void setLastDate(String LastDate) {
-	this.LastDate = LastDate;
+        this.LastDate = LastDate;
     }
 
     /**
      *
-     * @return
-     * The Saldo
+     * @return The Saldo
      */
     @JsonProperty("Saldo")
     public String getSaldo() {
-	return Saldo;
+        return Saldo;
     }
 
     /**
      *
-     * @param Saldo
-     * The Saldo
+     * @param Saldo The Saldo
      */
     @JsonProperty("Saldo")
     public void setSaldo(String Saldo) {
-	this.Saldo = Saldo;
+        this.Saldo = Saldo;
     }
 
     /**
      *
-     * @return
-     * The Sentences
+     * @return The Sentences
      */
     @JsonProperty("Sentences")
     public String getSentences() {
-	return Sentences;
+        return Sentences;
     }
 
     /**
      *
-     * @param Sentences
-     * The Sentences
+     * @param Sentences The Sentences
      */
     @JsonProperty("Sentences")
     public void setSentences(String Sentences) {
-	this.Sentences = Sentences;
+        this.Sentences = Sentences;
     }
 
     /**
      *
-     * @return
-     * The Size
+     * @return The Size
      */
     @JsonProperty("Size")
     public String getSize() {
-	return Size;
+        return Size;
     }
 
     /**
      *
-     * @param Size
-     * The Size
+     * @param Size The Size
      */
     @JsonProperty("Size")
     public void setSize(String Size) {
-	this.Size = Size;
+        this.Size = Size;
     }
 
     /**
      *
-     * @return
-     * The Updated
+     * @return The Updated
      */
     @JsonProperty("Updated")
     public String getUpdated() {
-	return Updated;
+        return Updated;
     }
 
     /**
      *
-     * @param Updated
-     * The Updated
+     * @param Updated The Updated
      */
     @JsonProperty("Updated")
     public void setUpdated(String Updated) {
-	this.Updated = Updated;
+        this.Updated = Updated;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 }

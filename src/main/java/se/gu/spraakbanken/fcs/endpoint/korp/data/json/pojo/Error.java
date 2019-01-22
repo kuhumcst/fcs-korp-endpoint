@@ -12,10 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-	"ERROR",
-	"time"
-})
+@JsonPropertyOrder({"ERROR", "time"})
 
 public class Error {
     @JsonProperty("ERROR")
@@ -27,52 +24,48 @@ public class Error {
 
     /**
      *
-     * @return
-     * The ERROR
+     * @return The ERROR
      */
     @JsonProperty("ERROR")
     public se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.ERROR getERROR() {
-	return ERROR;
+        return ERROR;
     }
 
     /**
      *
-     * @param ERROR
-     * The ERROR
+     * @param ERROR The ERROR
      */
     @JsonProperty("ERROR")
     public void setERROR(se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.ERROR ERROR) {
-	this.ERROR = ERROR;
+        this.ERROR = ERROR;
     }
 
     /**
      *
-     * @return
-     * The time
+     * @return The time
      */
     @JsonProperty("time")
     public Double getTime() {
-	return time;
+        return time;
     }
 
     /**
      *
-     * @param time
-     * The time
+     * @param time The time
      */
     @JsonProperty("time")
     public void setTime(Double time) {
-	this.time = time;
+        this.time = time;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 
 }

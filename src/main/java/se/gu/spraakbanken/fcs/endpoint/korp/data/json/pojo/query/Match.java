@@ -12,11 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-	"end",
-	"position",
-	"start"
-})
+@JsonPropertyOrder({"end", "position", "start"})
 
 public class Match {
 
@@ -31,71 +27,65 @@ public class Match {
 
     /**
      *
-     * @return
-     * The end
+     * @return The end
      */
     @JsonProperty("end")
     public Integer getEnd() {
-	return end;
+        return end;
     }
 
     /**
      *
-     * @param end
-     * The end
+     * @param end The end
      */
     @JsonProperty("end")
     public void setEnd(Integer end) {
-	this.end = end;
+        this.end = end;
     }
 
     /**
      *
-     * @return
-     * The position
+     * @return The position
      */
     @JsonProperty("position")
     public Integer getPosition() {
-	return position;
+        return position;
     }
 
     /**
      *
-     * @param position
-     * The position
+     * @param position The position
      */
     @JsonProperty("position")
     public void setPosition(Integer position) {
-	this.position = position;
+        this.position = position;
     }
 
     /**
      *
-     * @return
-     * The start
+     * @return The start
      */
     @JsonProperty("start")
     public Integer getStart() {
-	return start;
+        return start;
     }
 
     /**
      *
-     * @param start
-     * The start
+     * @param start The start
      */
     @JsonProperty("start")
     public void setStart(Integer start) {
-	this.start = start;
+        this.start = start;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 }

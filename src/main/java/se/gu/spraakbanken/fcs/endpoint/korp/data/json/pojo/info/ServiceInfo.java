@@ -9,29 +9,22 @@ import java.util.List;
 import java.util.Map;
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-	"corpora",
-	"cqp-version",
-	"protected_corpora",
-	"time"
-})
+@JsonPropertyOrder({"corpora", "cqp-version", "protected_corpora", "time"})
 
 public class ServiceInfo {
-    
+
     @JsonProperty("corpora")
     private List<String> corpora = new ArrayList<String>();
     @JsonProperty("cqp-version")
@@ -45,143 +38,134 @@ public class ServiceInfo {
 
     // MODERN DANISH CORPORA
     private static final List<String> MODERN_CORPORA = Collections.unmodifiableList(Arrays.asList(
-        "LSPAGRICULTUREJORDBRUGSFORSKNING",
-        //"LSPCLIMATEAKTUELNATURVIDENSKAB",
-        //"LSPCLIMATEDMU",
-        // "LSPCLIMATEHOVEDLAND",
-        // "LSPCLIMATEOEKRAAD",
-        "LSPCONSTRUCTIONEB1",
-        "LSPCONSTRUCTIONEB2",
-        "LSPCONSTRUCTIONMURO",
-        "LSPCONSTRUCTIONSBI"
-        //"LSPECONOMICSEOS",
-        //"LSPECONOMICSFT1",
-        //"LSPECONOMICSFT2",
-        // "LSPECONOMICSSKAT",
-        // "LSPECONUMICSEOS",
-        // "LSPHEALTH1AKTUELNATURVIDENSKAB",
-        // "LSPHEALTH1LIBRISSUNDHED",
-        // "LSPHEALTH1NETPATIENT",
-        // "LSPHEALTH1REGIONH",
-        // "LSPHEALTH1SOEFARTSSTYRELSEN",
-        // "LSPHEALTH1SST",
-        // "LSPHEALTH2SUNDHEDDK1",
-        // "LSPHEALTH2SUNDHEDDK2",
-        // "LSPHEALTH2SUNDHEDDK3",
-        // "LSPHEALTH2SUNDHEDDK4",
-        // "LSPHEALTH2SUNDHEDDK5",
-        // "LSPIECONUMICSEOS",
-        // "LSPITAKTUELNATURVIDENSKAB",
-        // "LSPITLIBRIS",
-        // "LSPITOO",
-        // "LSPNANOAKTUELNATURVIDENSKAB",
-        // "LSPNANONANO1",
-        // "LSPNANONANO2",
-        // "LSPNANONANO3",
-        // "LSPNANONANO4"
-        ));
+            // "LSPAGRICULTUREJORDBRUGSFORSKNING",
+            // "LSPCLIMATEAKTUELNATURVIDENSKAB",
+            // "LSPCLIMATEDMU",
+            // "LSPCLIMATEHOVEDLAND",
+            // "LSPCLIMATEOEKRAAD",
+            "LSPCONSTRUCTIONEB1", "LSPCONSTRUCTIONEB2"
+    // "LSPCONSTRUCTIONMURO",
+    // "LSPCONSTRUCTIONSBI"
+    // "LSPECONOMICSEOS",
+    // "LSPECONOMICSFT1",
+    // "LSPECONOMICSFT2",
+    // "LSPECONOMICSSKAT",
+    // "LSPECONUMICSEOS",
+    // "LSPHEALTH1AKTUELNATURVIDENSKAB",
+    // "LSPHEALTH1LIBRISSUNDHED",
+    // "LSPHEALTH1NETPATIENT",
+    // "LSPHEALTH1REGIONH",
+    // "LSPHEALTH1SOEFARTSSTYRELSEN",
+    // "LSPHEALTH1SST",
+    // "LSPHEALTH2SUNDHEDDK1",
+    // "LSPHEALTH2SUNDHEDDK2",
+    // "LSPHEALTH2SUNDHEDDK3",
+    // "LSPHEALTH2SUNDHEDDK4",
+    // "LSPHEALTH2SUNDHEDDK5",
+    // "LSPIECONUMICSEOS",
+    // "LSPITAKTUELNATURVIDENSKAB",
+    // "LSPITLIBRIS",
+    // "LSPITOO",
+    // "LSPNANOAKTUELNATURVIDENSKAB",
+    // "LSPNANONANO1",
+    // "LSPNANONANO2",
+    // "LSPNANONANO3",
+    // "LSPNANONANO4"
+    ));
 
     /**
      *
-     * @return
-     * The corpora
+     * @return The corpora
      */
     @JsonProperty("corpora")
     public List<String> getCorpora() {
-	return corpora;
+        return corpora;
     }
 
     /**
      *
-     * @param corpora
-     * The corpora
+     * @param corpora The corpora
      */
     @JsonProperty("corpora")
     public void setCorpora(List<String> corpora) {
-	this.corpora = corpora;
+        this.corpora = corpora;
     }
 
     /**
      *
-     * @return
-     * The cqpVersion
+     * @return The cqpVersion
      */
     @JsonProperty("cqp-version")
     public String getCqpVersion() {
-	return cqpVersion;
+        return cqpVersion;
     }
 
     /**
      *
-     * @param cqpVersion
-     * The cqp-version
+     * @param cqpVersion The cqp-version
      */
     @JsonProperty("cqp-version")
     public void setCqpVersion(String cqpVersion) {
-	this.cqpVersion = cqpVersion;
+        this.cqpVersion = cqpVersion;
     }
 
     /**
      *
-     * @return
-     * The protectedCorpora
+     * @return The protectedCorpora
      */
     @JsonProperty("protected_corpora")
     public List<String> getProtectedCorpora() {
-	return protectedCorpora;
+        return protectedCorpora;
     }
 
     /**
      *
-     * @param protectedCorpora
-     * The protected_corpora
+     * @param protectedCorpora The protected_corpora
      */
     @JsonProperty("protected_corpora")
     public void setProtectedCorpora(List<String> protectedCorpora) {
-	this.protectedCorpora = protectedCorpora;
+        this.protectedCorpora = protectedCorpora;
     }
 
     /**
      *
-     * @return
-     * The time
+     * @return The time
      */
     @JsonProperty("time")
     public Double getTime() {
-	return time;
+        return time;
     }
 
     /**
      *
-     * @param time
-     * The time
+     * @param time The time
      */
     @JsonProperty("time")
     public void setTime(Double time) {
-	this.time = time;
+        this.time = time;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 
     public static List<String> getOpenCorpora() {
         ObjectMapper mapper = new ObjectMapper();
 
-	ServiceInfo si = null;
-	final String wsString = "https://alf.hum.ku.dk/korp/cgi/korp.cgi?";
-	final String queryString = "command=info";
+        ServiceInfo si = null;
+        final String wsString = "https://alf.hum.ku.dk/korp/cgi/korp.cgi?";
+        final String queryString = "command=info";
 
         try {
-	    URL korp = new URL(wsString + queryString);
+            URL korp = new URL(wsString + queryString);
 
-            si = mapper.reader(ServiceInfo.class).readValue(korp.openStream());
+            si = mapper.readerFor(ServiceInfo.class).readValue(korp.openStream());
         } catch (JsonParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -196,31 +180,31 @@ public class ServiceInfo {
             e.printStackTrace();
         }
 
-	List<String> openCorpora = new ArrayList<String>();
-	boolean isPC = false;
-	for (String corpus : si.getCorpora()) {
-	    for (String pCorpus : si.getProtectedCorpora()) {
-		if (corpus.equals(pCorpus)) {
-		    isPC = true;
-		}
-	    }
-	    if (!isPC) {
-		openCorpora.add(corpus);
-	    }
-	    isPC = false;
-	}
-	return openCorpora;
+        List<String> openCorpora = new ArrayList<String>();
+        boolean isPC = false;
+        for (String corpus : si.getCorpora()) {
+            for (String pCorpus : si.getProtectedCorpora()) {
+                if (corpus.equals(pCorpus)) {
+                    isPC = true;
+                }
+            }
+            if (!isPC) {
+                openCorpora.add(corpus);
+            }
+            isPC = false;
+        }
+        return openCorpora;
     }
 
     public static List<String> getModernCorpora() {
-	List<String> modernCorpora = new ArrayList<String>();
-	List<String> openCorpora = ServiceInfo.getOpenCorpora();
-	for (String corpus : openCorpora) {
-		if (MODERN_CORPORA.contains(corpus)) {
-		    modernCorpora.add(corpus);
-		}
-	}
-	return modernCorpora;
+        List<String> modernCorpora = new ArrayList<String>();
+        List<String> openCorpora = ServiceInfo.getOpenCorpora();
+        for (String corpus : openCorpora) {
+            if (MODERN_CORPORA.contains(corpus)) {
+                modernCorpora.add(corpus);
+            }
+        }
+        return modernCorpora;
     }
 
 }

@@ -14,11 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-	"a",
-	"p",
-	"s"
-})
+@JsonPropertyOrder({"a", "p", "s"})
 public class CorpusAttrs {
 
     @JsonProperty("a")
@@ -32,71 +28,65 @@ public class CorpusAttrs {
 
     /**
      *
-     * @return
-     * The a
+     * @return The a
      */
     @JsonProperty("a")
     public List<Object> getA() {
-	return a;
+        return a;
     }
 
     /**
      *
-     * @param a
-     * The a
+     * @param a The a
      */
     @JsonProperty("a")
     public void setA(List<Object> a) {
-	this.a = a;
+        this.a = a;
     }
 
     /**
      *
-     * @return
-     * The p
+     * @return The p
      */
     @JsonProperty("p")
     public List<String> getP() {
-	return p;
+        return p;
     }
 
     /**
      *
-     * @param p
-     * The p
+     * @param p The p
      */
     @JsonProperty("p")
     public void setP(List<String> p) {
-	this.p = p;
+        this.p = p;
     }
 
     /**
      *
-     * @return
-     * The s
+     * @return The s
      */
     @JsonProperty("s")
     public List<String> getS() {
-	return s;
+        return s;
     }
 
     /**
      *
-     * @param s
-     * The s
+     * @param s The s
      */
     @JsonProperty("s")
     public void setS(List<String> s) {
-	this.s = s;
+        this.s = s;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 }

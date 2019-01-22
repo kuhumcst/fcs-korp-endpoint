@@ -14,11 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-	"corpus",
-	"match",
-	"tokens"
-})
+@JsonPropertyOrder({"corpus", "match", "tokens"})
 public class Kwic {
 
     @JsonProperty("corpus")
@@ -32,72 +28,66 @@ public class Kwic {
 
     /**
      *
-     * @return
-     * The corpus
+     * @return The corpus
      */
     @JsonProperty("corpus")
     public String getCorpus() {
-	return corpus;
+        return corpus;
     }
 
     /**
      *
-     * @param corpus
-     * The corpus
+     * @param corpus The corpus
      */
     @JsonProperty("corpus")
     public void setCorpus(String corpus) {
-	this.corpus = corpus;
+        this.corpus = corpus;
     }
 
     /**
      *
-     * @return
-     * The match
+     * @return The match
      */
     @JsonProperty("match")
     public Match getMatch() {
-	return match;
+        return match;
     }
 
     /**
      *
-     * @param match
-     * The match
+     * @param match The match
      */
     @JsonProperty("match")
     public void setMatch(Match match) {
-	this.match = match;
+        this.match = match;
     }
 
     /**
      *
-     * @return
-     * The tokens
+     * @return The tokens
      */
     @JsonProperty("tokens")
     public List<Token> getTokens() {
-	return tokens;
+        return tokens;
     }
 
     /**
      *
-     * @param tokens
-     * The tokens
+     * @param tokens The tokens
      */
     @JsonProperty("tokens")
     public void setTokens(List<Token> tokens) {
-	this.tokens = tokens;
+        this.tokens = tokens;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 
 }

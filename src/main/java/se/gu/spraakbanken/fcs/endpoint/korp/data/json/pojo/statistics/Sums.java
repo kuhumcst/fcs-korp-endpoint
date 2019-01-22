@@ -12,10 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-"absolute",
-"relative"
-})
+@JsonPropertyOrder({"absolute", "relative"})
 
 public class Sums {
 
@@ -32,7 +29,7 @@ public class Sums {
      */
     @JsonProperty("absolute")
     public Integer getAbsolute() {
-	return absolute;
+        return absolute;
     }
 
     /**
@@ -41,7 +38,7 @@ public class Sums {
      */
     @JsonProperty("absolute")
     public void setAbsolute(Integer absolute) {
-	this.absolute = absolute;
+        this.absolute = absolute;
     }
 
     /**
@@ -50,7 +47,7 @@ public class Sums {
      */
     @JsonProperty("relative")
     public Double getRelative() {
-	return relative;
+        return relative;
     }
 
     /**
@@ -59,16 +56,16 @@ public class Sums {
      */
     @JsonProperty("relative")
     public void setRelative(Double relative) {
-	this.relative = relative;
+        this.relative = relative;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 }

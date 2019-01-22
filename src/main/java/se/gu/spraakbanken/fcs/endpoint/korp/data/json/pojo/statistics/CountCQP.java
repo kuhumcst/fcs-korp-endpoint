@@ -2,7 +2,6 @@ package se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.statistics;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -11,12 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-	"corpora",
-	"count",
-	"time",
-	"total"
-})
+@JsonPropertyOrder({"corpora", "count", "time", "total"})
 public class CountCQP {
 
     @JsonProperty("corpora")
@@ -32,32 +26,29 @@ public class CountCQP {
 
     /**
      *
-     * @return
-     * The corpora
+     * @return The corpora
      */
     @JsonProperty("corpora")
     public Map getCorpora() {
-	return corpora;
+        return corpora;
     }
 
     /**
      *
-     * @param corpora
-     * The corpora
+     * @param corpora The corpora
      */
     @JsonProperty("corpora")
     public void setCorpora(final Map corpora) {
-	this.corpora = corpora;
+        this.corpora = corpora;
     }
 
     /**
      *
-     * @return
-     * The count
+     * @return The count
      */
     @JsonProperty("count")
     public Integer getCount() {
-	return count;
+        return count;
     }
 
     /**
@@ -66,17 +57,16 @@ public class CountCQP {
      */
     @JsonProperty("count")
     public void setCount(Integer count) {
-	this.count = count;
+        this.count = count;
     }
 
     /**
      *
-     * @return
-     * The time
+     * @return The time
      */
     @JsonProperty("time")
     public Double getTime() {
-	return time;
+        return time;
     }
 
     /**
@@ -85,17 +75,16 @@ public class CountCQP {
      */
     @JsonProperty("time")
     public void setTime(Double time) {
-	this.time = time;
+        this.time = time;
     }
 
     /**
      *
-     * @return
-     * The total
+     * @return The total
      */
     @JsonProperty("total")
     public CorpusFreqs getTotal() {
-	return total;
+        return total;
     }
 
     /**
@@ -104,16 +93,16 @@ public class CountCQP {
      */
     @JsonProperty("total")
     public void setTotal(CorpusFreqs total) {
-	this.total = total;
+        this.total = total;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 }

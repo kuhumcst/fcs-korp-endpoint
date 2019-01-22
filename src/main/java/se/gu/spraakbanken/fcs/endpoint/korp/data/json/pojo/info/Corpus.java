@@ -12,10 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-"attrs",
-"info"
-})
+@JsonPropertyOrder({"attrs", "info"})
 
 public class Corpus {
 
@@ -28,51 +25,47 @@ public class Corpus {
 
     /**
      *
-     * @return
-     * The attrs
+     * @return The attrs
      */
     @JsonProperty("attrs")
     public CorpusAttrs getAttrs() {
-	return attrs;
+        return attrs;
     }
 
     /**
      *
-     * @param attrs
-     * The attrs
+     * @param attrs The attrs
      */
     @JsonProperty("attrs")
     public void setAttrs(CorpusAttrs attrs) {
-	this.attrs = attrs;
+        this.attrs = attrs;
     }
 
     /**
      *
-     * @return
-     * The info
+     * @return The info
      */
     @JsonProperty("info")
     public CorpusMetaInfo getMetaInfo() {
-	return info;
+        return info;
     }
 
     /**
      *
-     * @param info
-     * The info
+     * @param info The info
      */
     @JsonProperty("info")
     public void setMetaInfo(CorpusMetaInfo info) {
-	this.info = info;
+        this.info = info;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 }

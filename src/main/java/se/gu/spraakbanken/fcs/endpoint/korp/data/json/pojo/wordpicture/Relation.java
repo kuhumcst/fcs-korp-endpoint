@@ -14,17 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-"dep",
-"depextra",
-"deppos",
-"freq",
-"head",
-"headpos",
-"mi",
-"rel",
-"source"
-})
+@JsonPropertyOrder({"dep", "depextra", "deppos", "freq", "head", "headpos", "mi", "rel", "source"})
 
 public class Relation {
     @JsonProperty("dep")
@@ -50,52 +40,47 @@ public class Relation {
 
     /**
      *
-     * @return
-     * The dep
+     * @return The dep
      */
     @JsonProperty("dep")
     public String getDep() {
-	return dep;
+        return dep;
     }
 
     /**
      *
-     * @param dep
-     * The dep
+     * @param dep The dep
      */
     @JsonProperty("dep")
     public void setDep(String dep) {
-	this.dep = dep;
+        this.dep = dep;
     }
 
     /**
      *
-     * @return
-     * The depextra
+     * @return The depextra
      */
     @JsonProperty("depextra")
     public String getDepextra() {
-	return depextra;
+        return depextra;
     }
 
     /**
      *
-     * @param depextra
-     * The depextra
+     * @param depextra The depextra
      */
     @JsonProperty("depextra")
     public void setDepextra(String depextra) {
-	this.depextra = depextra;
+        this.depextra = depextra;
     }
 
     /**
      *
-     * @return
-     * The deppos
+     * @return The deppos
      */
     @JsonProperty("deppos")
     public String getDeppos() {
-	return deppos;
+        return deppos;
     }
 
     /**
@@ -104,17 +89,16 @@ public class Relation {
      */
     @JsonProperty("deppos")
     public void setDeppos(String deppos) {
-	this.deppos = deppos;
+        this.deppos = deppos;
     }
 
     /**
      *
-     * @return
-     * The freq
+     * @return The freq
      */
     @JsonProperty("freq")
     public Integer getFreq() {
-	return freq;
+        return freq;
     }
 
     /**
@@ -123,116 +107,106 @@ public class Relation {
      */
     @JsonProperty("freq")
     public void setFreq(Integer freq) {
-	this.freq = freq;
+        this.freq = freq;
     }
 
     /**
      *
-     * @return
-     * The head
+     * @return The head
      */
     @JsonProperty("head")
     public String getHead() {
-	return head;
+        return head;
     }
 
     /**
      *
-     * @param head
-     * The head
+     * @param head The head
      */
     @JsonProperty("head")
     public void setHead(String head) {
-	this.head = head;
+        this.head = head;
     }
 
     /**
      *
-     * @return
-     * The headpos
+     * @return The headpos
      */
     @JsonProperty("headpos")
     public String getHeadpos() {
-	return headpos;
+        return headpos;
     }
 
     /**
      *
-     * @param headpos
-     * The headpos
+     * @param headpos The headpos
      */
     @JsonProperty("headpos")
     public void setHeadpos(String headpos) {
-	this.headpos = headpos;
+        this.headpos = headpos;
     }
 
     /**
      *
-     * @return
-     * The mi
+     * @return The mi
      */
     @JsonProperty("mi")
     public Double getMi() {
-	return mi;
+        return mi;
     }
 
     /**
      *
-     * @param mi
-     * The mi
+     * @param mi The mi
      */
     @JsonProperty("mi")
     public void setMi(Double mi) {
-	this.mi = mi;
+        this.mi = mi;
     }
 
     /**
      *
-     * @return
-     * The rel
+     * @return The rel
      */
     @JsonProperty("rel")
     public String getRel() {
-	return rel;
+        return rel;
     }
 
     /**
      *
-     * @param rel
-     * The rel
+     * @param rel The rel
      */
     @JsonProperty("rel")
     public void setRel(String rel) {
-	this.rel = rel;
+        this.rel = rel;
     }
 
     /**
      *
-     * @return
-     * The source corpora positions
+     * @return The source corpora positions
      */
     @JsonProperty("source")
     public List<String> getSource() {
-	return source;
+        return source;
     }
 
     /**
      *
-     * @param source
-     * The source
+     * @param source The source
      */
     @JsonProperty("source")
     public void setSource(List<String> source) {
-	this.source = source;
+        this.source = source;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 }

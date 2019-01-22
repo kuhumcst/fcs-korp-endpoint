@@ -12,10 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-"type",
-"value"
-})
+@JsonPropertyOrder({"type", "value"})
 
 public class ERROR {
     @JsonProperty("type")
@@ -27,51 +24,47 @@ public class ERROR {
 
     /**
      *
-     * @return
-     * The type
+     * @return The type
      */
     @JsonProperty("type")
     public String getType() {
-	return type;
+        return type;
     }
 
     /**
      *
-     * @param type
-     * The type
+     * @param type The type
      */
     @JsonProperty("type")
     public void setType(String type) {
-	this.type = type;
+        this.type = type;
     }
 
     /**
      *
-     * @return
-     * The value
+     * @return The value
      */
     @JsonProperty("value")
     public String getValue() {
-	return value;
+        return value;
     }
 
     /**
      *
-     * @param value
-     * The value
+     * @param value The value
      */
     @JsonProperty("value")
     public void setValue(String value) {
-	this.value = value;
+        this.value = value;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 }

@@ -12,11 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-"absolute",
-"relative",
-"sums"
-})
+@JsonPropertyOrder({"absolute", "relative", "sums"})
 
 public class CorpusFreqs {
 
@@ -35,7 +31,7 @@ public class CorpusFreqs {
      */
     @JsonProperty("absolute")
     public Map getAbsolute() {
-	return absolute;
+        return absolute;
     }
 
     /**
@@ -44,7 +40,7 @@ public class CorpusFreqs {
      */
     @JsonProperty("absolute")
     public void setAbsolute(Map absolute) {
-	this.absolute = absolute;
+        this.absolute = absolute;
     }
 
     /**
@@ -53,7 +49,7 @@ public class CorpusFreqs {
      * @return The absolute frequency for the attribute
      */
     public Integer getAbsolute(final String attr) {
-	return absolute.get(attr);
+        return absolute.get(attr);
     }
 
     /**
@@ -62,7 +58,7 @@ public class CorpusFreqs {
      * @param freq The absolute frequecy of the attribute
      */
     public void addAbsolute(final String attr, final Integer freq) {
-	absolute.put(attr, freq);
+        absolute.put(attr, freq);
     }
 
     /**
@@ -71,16 +67,16 @@ public class CorpusFreqs {
      */
     @JsonProperty("relative")
     public Map getRelative() {
-	return relative;
+        return relative;
     }
 
     /**
      *
-     * @param relative The attributes and their relative frequencies 
+     * @param relative The attributes and their relative frequencies
      */
     @JsonProperty("relative")
     public void setRelative(Map relative) {
-	this.relative = relative;
+        this.relative = relative;
     }
 
     /**
@@ -89,7 +85,7 @@ public class CorpusFreqs {
      * @return The relative frequency of the attribute
      */
     public Double getRelative(final String attr) {
-	return relative.get(attr);
+        return relative.get(attr);
     }
 
     /**
@@ -98,7 +94,7 @@ public class CorpusFreqs {
      * @param freq The absolute frequecy of the attribute
      */
     public void addRelative(final String attr, final Double freq) {
-	relative.put(attr, freq);
+        relative.put(attr, freq);
     }
 
     /**
@@ -107,26 +103,25 @@ public class CorpusFreqs {
      */
     @JsonProperty("sums")
     public Sums getSums() {
-	return sums;
+        return sums;
     }
 
     /**
      *
-     * @param sums The sums instance
-     * The sums
+     * @param sums The sums instance The sums
      */
     @JsonProperty("sums")
     public void setSums(Sums sums) {
-	this.sums = sums;
+        this.sums = sums;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-	return this.additionalProperties;
+        return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-	this.additionalProperties.put(name, value);
+        this.additionalProperties.put(name, value);
     }
 }
