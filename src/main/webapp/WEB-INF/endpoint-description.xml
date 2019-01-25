@@ -20,7 +20,7 @@
 			<Title xml:lang="en">CLARIN-DK Corpora</Title>
 			<Description xml:lang="dk">Korpora hos CLARIN-DK Datacenter</Description>
 			<Description xml:lang="en">The corpora at CLARIN-DK Data Centre</Description>
-			<LandingPageURI>https://repository.clarin.dk/repository/xmlui/discover?filter=corpus&amp;filter_relational_operator=equals&amp;filtertype=type</LandingPageURI>
+			<LandingPageURI></LandingPageURI><!--TODO landing page info.clarin.dk -->
 			<Languages>
 				<Language>dan</Language>
 			</Languages>
@@ -32,7 +32,7 @@
 					<Title xml:lang="en">DK-CLARIN LSP (Language for Special Purposes) Corpus</Title>
 					<Description xml:lang="dk">Det omfatter tekster på i alt ca. 11 mio. løbende ord fordelt på 7 domæner nemlig sundhed og medicin, klima og miljø, økonomi, landbrug, it, bygge- og anlæg samt nanoteknologi.</Description>
 					<Description xml:lang="en">The DK-CLARIN LSP corpus comprises 11 M tokens from the period 2000-2010, complementing the existing Danish general language corpora.</Description>
-					<LandingPageURI>https://cst.ku.dk/english/resurser/fagsprogligt-korpus/</LandingPageURI>
+					<LandingPageURI></LandingPageURI><!--TODO landing page info.clarin.dk -->
 					<Languages>
 						<Language>dan</Language>
 					</Languages>
