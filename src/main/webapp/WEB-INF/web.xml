@@ -15,10 +15,6 @@
       <param-value>8088</param-value>
     </init-param>
     <init-param>
-      <param-name>eu.clarin.sru.server.host</param-name>
-      <param-value>alf.hum.ku.dk</param-value>
-    </init-param>
-    <init-param>
       <param-name>eu.clarin.sru.server.database</param-name>
       <param-value>fcs-korp-endpoint/sru</param-value>
     </init-param>
