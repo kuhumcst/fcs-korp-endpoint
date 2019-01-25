@@ -40,7 +40,7 @@
     <developer>
       <id>seaton</id>
       <name>Mitchell Seaton</name>
-      <organization>Center for Language Technology, Department of Nordic Research, University of Copenhagen</organization>
+      <organization>Center for Language Technology, NorS, University of Copenhagen</organization>
       <url>https://cst.ku.dk/</url>
     </developer>
   </developers>
@@ -118,16 +118,14 @@
           </execution>
         </executions>
       </plugin>
-      <!--plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.6</version>
-	<configuration>
-	  <archive>
-	    <addMavenDescriptor>false</addMavenDescriptor>
-	  </archive>
-	</configuration>
-      </plugin-->
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M3</version>
+        <configuration>
+            <useSystemClassLoader>false</useSystemClassLoader>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <repositories>
