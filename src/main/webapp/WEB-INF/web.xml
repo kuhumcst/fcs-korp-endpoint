@@ -4,7 +4,7 @@
   <display-name>CLARIN-DK Korp-SRU/CQL service</display-name>
   <servlet>
     <display-name>CLARIN-DK SRU/CQL Service (HTTP Interface)</display-name>
-    <servlet-name>CLARINDKKorpSRUServlet</servlet-name>
+    <servlet-name>CLARINDKKorpSRU</servlet-name>
     <servlet-class>eu.clarin.sru.server.utils.SRUServerServlet</servlet-class>
     <init-param>
       <param-name>eu.clarin.sru.server.host</param-name>
@@ -50,7 +50,7 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>CLARINDKKorpSRUServlet</servlet-name>
+    <servlet-name>CLARINDKKorpSRU</servlet-name>
     <url-pattern>/sru</url-pattern>
   </servlet-mapping>
 </web-app>
