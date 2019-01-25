@@ -6,6 +6,18 @@
     <display-name>CLARIN-DK SRU/CQL Service (HTTP Interface)</display-name>
     <servlet-name>CLARINDKKorpSRU</servlet-name>
     <servlet-class>eu.clarin.sru.server.utils.SRUServerServlet</servlet-class>
+     <init-param>
+      <param-name>eu.clarin.sru.server.numberOfRecords</param-name>
+      <param-value>250</param-value>
+    </init-param>
+    <init-param>
+      <param-name>eu.clarin.sru.server.maximumRecords</param-name>
+      <param-value>1000</param-value>
+    </init-param>
+    <init-param>
+			<param-name>eu.clarin.sru.server.transport</param-name>
+			<param-value>http</param-value>
+		</init-param>
     <init-param>
       <param-name>eu.clarin.sru.server.host</param-name>
       <param-value>alf.hum.ku.dk</param-value>
@@ -17,14 +29,6 @@
     <init-param>
       <param-name>eu.clarin.sru.server.database</param-name>
       <param-value>fcs-korp-endpoint/sru</param-value>
-    </init-param>
-    <init-param>
-      <param-name>eu.clarin.sru.server.numberOfRecords</param-name>
-      <param-value>250</param-value>
-    </init-param>
-    <init-param>
-      <param-name>eu.clarin.sru.server.maximumRecords</param-name>
-      <param-value>1000</param-value>
     </init-param>
     <init-param>
       <param-name>eu.clarin.sru.server.allowOverrideMaximumRecords</param-name>
