@@ -79,13 +79,14 @@ public class SUCTranslator {
 	 */
 	public static List<String> fromSUC(final String sucPos) throws SRUException {
 		List<String> res = null;
-		int iop = sucPos.indexOf(".");
+		String pos = (sucPos != null) ? sucPos : "OTHER";
 
-		res = TO_UD17.get((iop != -1 ? sucPos.substring(0, iop) : sucPos).toUpperCase());
+		int iop = pos.indexOf(".");
+		res = TO_UD17.get((iop != -1 ? pos.substring(0, iop) : pos).toUpperCase());
 		if (res == null) {
 			throw new SRUException(SRUConstants.SRU_CANNOT_PROCESS_QUERY_REASON_UNKNOWN,
 					"unknown PoS code from search engine: "
-							+ (iop != -1 ? sucPos.substring(0, iop) : sucPos));
+							+ (iop != -1 ? pos.substring(0, iop) : pos));
 		}
 		return res;
 	}
