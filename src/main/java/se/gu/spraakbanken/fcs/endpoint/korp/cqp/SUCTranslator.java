@@ -79,7 +79,12 @@ public class SUCTranslator {
 	 */
 	public static List<String> fromSUC(final String sucPos) throws SRUException {
 		List<String> res = null;
-		String pos = (sucPos != null) ? sucPos : "OTHER";
+		String pos = null;
+
+		if (sucPos == null) // TODO unit test
+			pos = "OTHER";
+		else
+			pos = sucPos;
 
 		int iop = pos.indexOf(".");
 		res = TO_UD17.get((iop != -1 ? pos.substring(0, iop) : pos).toUpperCase());
