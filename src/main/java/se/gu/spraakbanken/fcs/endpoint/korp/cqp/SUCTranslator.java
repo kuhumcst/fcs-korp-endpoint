@@ -82,7 +82,7 @@ public class SUCTranslator {
 		String pos = null;
 
 		if (sucPos == null) // TODO unit test
-			pos = "OTHER";
+			pos = "X";
 		else
 			pos = sucPos;
 
