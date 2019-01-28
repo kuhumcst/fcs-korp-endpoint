@@ -5,8 +5,8 @@
         <title xml:lang="en" primary="true">CLARIN-DK tekstkorpora</title>
         <description xml:lang="dk">Søg i de CLARIN-DK tekstkorpora.</description>
         <description xml:lang="en" primary="true">Search in the CLARIN-DK text corpora.</description>
-        <author xml:lang="en">Centre for Language Technology, NorS</author>
-        <author xml:lang="dk" primary="true">Center for Sprogteknologi, NorS</author>
+        <author xml:lang="en">Centre for Language Technology, NorS, University of Copenhagen</author>
+        <author xml:lang="dk" primary="true">Center for Sprogteknologi, NorS, Københavns Universitet</author>
     </databaseInfo>
     <indexInfo>
         <set name="fcs" identifier="http://clarin.eu/fcs/resource">
