@@ -371,7 +371,8 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
 
 
         Query queryRes = makeQuery(query, openCorporaInfo, request.getStartRecord(),
-                request.getMaximumRecords());
+                (request.getMaximumRecords() <= 0 ? config.getMaximumRecords()
+                        : request.getMaximumRecords()));
         if (queryRes == null) {
             throw new SRUException(SRUConstants.SRU_CANNOT_PROCESS_QUERY_REASON_UNKNOWN,
                     "The query execution failed by this CLARIN-FCS Endpoint.");
@@ -387,7 +388,7 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
         String queryString = "command=query&defaultcontext=1+sentence&show=msd,lemma&cqp=";
         String startParam = "&start=" + (startRecord == 1 ? 0 : startRecord - 1);
         String endParam =
-                "&end=" + (maximumRecords == 0 ? 249 : startRecord - 1 + maximumRecords - 1);
+                "&end=" + (maximumRecords <= 0 ? 9 : startRecord - 1 + maximumRecords - 1);
         String corpusParam = "&corpus=";
         String corpusParamValues =
                 CorporaInfo.getCorpusParameterValues(openCorporaInfo.getCorpora().keySet());

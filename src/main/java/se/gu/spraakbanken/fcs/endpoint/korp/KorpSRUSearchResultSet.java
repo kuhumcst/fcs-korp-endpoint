@@ -57,8 +57,8 @@ public class KorpSRUSearchResultSet extends SRUSearchResultSet {
     private CorporaInfo corporaInfo;
     private Query resultSet;
     private String resultSetId = null;
-    private int startRecord;
-    private int maximumRecords;
+    private int startRecord = 1;
+    private int maximumRecords = 0;
     private int currentRecordCursor = 0;
     private int recordCount = 0;
     private int totalRecordCount = -1;
@@ -115,7 +115,7 @@ public class KorpSRUSearchResultSet extends SRUSearchResultSet {
 
         if (resultSet != null && resultSet.getHits() > -1) {
             setRecordCount(
-                    (resultSet.getHits() < maximumRecords) ? resultSet.getHits() : maximumRecords);
+                    (resultSet.getHits() < maximumRecords ? resultSet.getHits() : maximumRecords));
             setTotalRecordCount(resultSet.getHits());
         }
 
