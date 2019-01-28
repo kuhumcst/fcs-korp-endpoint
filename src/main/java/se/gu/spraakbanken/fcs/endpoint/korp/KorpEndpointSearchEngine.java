@@ -20,8 +20,8 @@ import javax.xml.stream.XMLStreamWriter;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import eu.clarin.sru.server.CQLQueryParser;
 import eu.clarin.sru.server.SRUConfigException;
 import eu.clarin.sru.server.SRUConstants;
@@ -57,10 +57,10 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
     private static final String ED_PREFIX = "ed";
     private static final int ED_VERSION = 2;
     private static CorporaInfo openCorporaInfo;
-    private static final Logger LOG = LoggerFactory.getLogger(KorpEndpointSearchEngine.class);
     protected EndpointDescription endpointDescription;
     public static final String RESOURCE_INVENTORY_URL =
             "se.gu.spraakbanken.fcs.korp.sru.resourceInventoryURL";
+    private static final Logger LOG = LogManager.getLogger(KorpEndpointSearchEngine.class);
 
     protected EndpointDescription createEndpointDescription(ServletContext context,
             SRUServerConfig config, Map<String, String> params) throws SRUConfigException {
@@ -387,14 +387,16 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
         String queryString = "command=query&defaultcontext=1+sentence&show=msd,lemma&cqp=";
         String startParam = "&start=" + (startRecord == 1 ? 0 : startRecord - 1);
         String endParam =
-                "&end=" + (maximumRecords == 0 ? 250 : startRecord - 1 + maximumRecords - 1);
+                "&end=" + (maximumRecords == 0 ? 249 : startRecord - 1 + maximumRecords - 1);
         String corpusParam = "&corpus=";
         String corpusParamValues =
                 CorporaInfo.getCorpusParameterValues(openCorporaInfo.getCorpora().keySet());
+
         try {
             URL korp = new URL(wsString + queryString + URLEncoder.encode(cqpQuery, "UTF-8")
                     + startParam + endParam + corpusParam + corpusParamValues);
             URLConnection connection = korp.openConnection();
+            LOG.debug("Korp query: " + korp.toString());
             return mapper.readerFor(Query.class).readValue(connection.getInputStream());
         } catch (JsonParseException e) {
             // TODO Auto-generated catch block

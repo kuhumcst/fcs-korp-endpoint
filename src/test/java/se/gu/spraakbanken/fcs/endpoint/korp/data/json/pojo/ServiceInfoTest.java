@@ -11,6 +11,8 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.info.ServiceInfo;
 
@@ -19,6 +21,7 @@ public class ServiceInfoTest {
             "{\"corpora\":[\"ROMI\"],\"cqp-version\":\"CQP version 3.4.9\",\"protected_corpora\":[],\"time\":0.0093}";
     private String jsonString2 =
             "{\"corpora\":[\"FRAGELADAN\",\"LSI\",\"WIKIPEDIA-SV\"],\"cqp-version\":\"CQP version 3.4.9\",\"protected_corpora\":[\"LSI\",\"FRAGELADAN\"],\"time\":0.10500788688659668}";
+    private static final Logger LOG = LogManager.getLogger(ServiceInfoTest.class);
 
     @Test
     public void serviceInfoSerialize() {
@@ -39,7 +42,8 @@ public class ServiceInfoTest {
             e.printStackTrace();
         }
 
-        System.out.println(s);
+        LOG.info(s);
+
         assertEquals(jsonString, s);
     }
 
@@ -64,7 +68,7 @@ public class ServiceInfoTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         assertEquals(jsonString2, roundTripString);
         assertEquals(si2.getCqpVersion(), "CQP version 3.4.9");
         assertEquals(si2.getTime(), new Double("0.10500788688659668"));
@@ -98,7 +102,7 @@ public class ServiceInfoTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         // assertEquals(jsonString, roundTripString);
         assertNotNull(si4.getTime());
         assertNotNull(si4.getCqpVersion());

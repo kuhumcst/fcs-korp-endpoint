@@ -11,11 +11,14 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.statistics.CountLemgrams;
 
 public class CountLemgramsTest {
     private String jsonString =
             "{\"ge..vb.1\":9516,\"hitta..vb.1\":1944,\"time\":0.017657041549682617}";
+    private static final Logger LOG = LogManager.getLogger(CountLemgramsTest.class);
 
     @Test
     public void countLemgramsSerialize() {
@@ -34,7 +37,7 @@ public class CountLemgramsTest {
             e.printStackTrace();
         }
 
-        System.out.println(s);
+        LOG.info(s);
         assertEquals(new Integer("9516"), cl.getLemgram("ge..vb.1"));
     }
 
@@ -59,7 +62,7 @@ public class CountLemgramsTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         // assertEquals(jsonString, roundTripString);
         assertEquals(new Integer("9516"), cl2.getLemgram("ge..vb.1"));
         assertEquals(new Integer("1944"), cl2.getLemgram("hitta..vb.1"));
@@ -97,7 +100,7 @@ public class CountLemgramsTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         // assertEquals(jsonString, roundTripString);
         assertNotNull(cl4.getTime());
 

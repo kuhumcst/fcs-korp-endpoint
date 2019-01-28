@@ -11,6 +11,8 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.statistics.CorpusFreqs;
 import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.statistics.CountCQP;
@@ -19,6 +21,7 @@ import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.statistics.Sums;
 public class CountCQPTest {
     private String jsonString =
             "{\"corpora\":{\"ROMI\":{\"absolute\":{\"givande\":9},\"relative\":{\"givande\":1.367943312429133},\"sums\":{\"absolute\":9,\"relative\":1.367943312429133}}},\"count\":1,\"time\":0.8480129241943359,\"total\":{\"absolute\":{\"givande\":9},\"relative\":{\"givande\":1.367943312429133},\"sums\":{\"absolute\":9,\"relative\":1.367943312429133}}}";
+    private static final Logger LOG = LogManager.getLogger(CountCQPTest.class);
 
     @Test
     public void countCQPSerialize() {
@@ -51,7 +54,7 @@ public class CountCQPTest {
             e.printStackTrace();
         }
 
-        System.out.println(s);
+        LOG.info(s);
         assertEquals(jsonString, s);
     }
 
@@ -76,7 +79,7 @@ public class CountCQPTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         assertEquals(jsonString, roundTripString);
         assertEquals(cl2.getTime(), new Double("0.8480129241943359"));
 
@@ -113,7 +116,7 @@ public class CountCQPTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         // assertEquals(jsonString, roundTripString);
         assertEquals("LSPCONSTRUCTIONEB1", cl4.getCorpora().keySet().toArray()[0]);
         assertNotNull(cl4.getTime());

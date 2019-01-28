@@ -13,6 +13,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.query.Kwic;
 import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.query.Match;
 import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.query.Query;
@@ -23,6 +25,7 @@ public class QueryTest {
             "{\"corpus_hits\":{\"SUC2\":5934},\"corpus_order\":[\"SUC2\"],\"hits\":5934,\"kwic\":[{\"corpus\":\"SUC2\",\"match\":{\"end\":7,\"position\":86,\"start\":4},\"tokens\":[{\"lemma\":\"|f\u00f6r|\",\"msd\":\"PP\",\"word\":\"F\u00f6r\"}]}],\"querydata\":\"eJwzMjAxtTQ1NzExsja1NDaxDg51NrICsQBF1AWC\\\\n\",\"time\":0.7205440998077393}";
     private String jsonString2 =
             "{\"corpus_hits\":{\"SUC2\":5934},\"corpus_order\":[\"SUC2\"],\"hits\":5934,\"kwic\":[{\"corpus\":\"SUC2\",\"match\":{\"end\":7,\"position\":86,\"start\":4},\"tokens\":[{\"lemma\":\"|f\u00f6r|\",\"msd\":\"PP\",\"word\":\"F\u00f6r\"},{\"lemma\":\"|viss|\",\"msd\":\"JJ.POS.UTR+NEU.PLU.IND+DEF.NOM\",\"word\":\"vissa\"},{\"lemma\":\"|ledande|\",\"msd\":\"PC.PRS.UTR+NEU.SIN+PLU.IND+DEF.NOM\",\"word\":\"ledande\"},{\"lemma\":\"|statlig|\",\"msd\":\"JJ.POS.UTR+NEU.PLU.IND+DEF.NOM\",\"word\":\"statliga\"},{\"lemma\":\"|och|\",\"msd\":\"KN\",\"word\":\"och\"},{\"lemma\":\"|kommunal|\",\"msd\":\"JJ.POS.UTR+NEU.PLU.IND+DEF.NOM\",\"word\":\"kommunala\"},{\"lemma\":\"|tj\u00e4nsteman|\",\"msd\":\"NN.UTR.PLU.IND.NOM\",\"word\":\"tj\u00e4nstem\u00e4n\"},{\"lemma\":\"|f\u00f6religga|\",\"msd\":\"VB.PRS.AKT\",\"word\":\"f\u00f6religger\"},{\"lemma\":\"|det|\",\"msd\":\"PN.NEU.SIN.DEF.SUB+OBJ\",\"word\":\"det\"},{\"lemma\":\"|valbarhetshinder|\",\"msd\":\"NN.NEU.SIN.IND.NOM\",\"word\":\"valbarhetshinder\"},{\"lemma\":\"|.|\",\"msd\":\"MAD\",\"word\":\".\"}]},{\"corpus\":\"SUC2\",\"match\":{\"end\":9,\"position\":149,\"start\":6},\"tokens\":[{\"lemma\":\"|f\u00f6r|\",\"msd\":\"PP\",\"word\":\"F\u00f6r\"},{\"lemma\":\"|att|\",\"msd\":\"IE\",\"word\":\"att\"},{\"lemma\":\"|f\u00f6rb\u00e4ttra|\",\"msd\":\"VB.INF.AKT\",\"word\":\"f\u00f6rb\u00e4ttra\"},{\"lemma\":\"|service|\",\"msd\":\"NN.UTR.SIN.DEF.NOM\",\"word\":\"servicen\"},{\"lemma\":\"|till|\",\"msd\":\"PP\",\"word\":\"till\"},{\"lemma\":\"|medborgare|\",\"msd\":\"NN.UTR.PLU.DEF.NOM\",\"word\":\"medborgarna\"},{\"lemma\":\"|och|\",\"msd\":\"KN\",\"word\":\"och\"},{\"lemma\":\"|\u00f6ka|\",\"msd\":\"VB.INF.AKT\",\"word\":\"\u00f6ka\"},{\"lemma\":\"|effektivitet|\",\"msd\":\"NN.UTR.SIN.DEF.NOM\",\"word\":\"effektiviteten\"},{\"lemma\":\"|inom|\",\"msd\":\"PP\",\"word\":\"inom\"},{\"lemma\":\"|den|\",\"msd\":\"DT.UTR.SIN.DEF\",\"word\":\"den\"},{\"lemma\":\"|offentlig|\",\"msd\":\"JJ.POS.UTR+NEU.SIN.DEF.NOM\",\"word\":\"offentliga\"},{\"lemma\":\"|sektor|\",\"msd\":\"NN.UTR.SIN.DEF.NOM\",\"word\":\"sektorn\"},{\"lemma\":\"|beh\u00f6va|\",\"msd\":\"VB.PRS.SFO\",\"word\":\"beh\u00f6vs\"},{\"lemma\":\"|en|\",\"msd\":\"DT.UTR.SIN.IND\",\"word\":\"en\"},{\"lemma\":\"|stor|\",\"msd\":\"JJ.KOM.UTR+NEU.SIN+PLU.IND+DEF.NOM\",\"word\":\"st\u00f6rre\"},{\"lemma\":\"|flexibilitet|\",\"msd\":\"NN.UTR.SIN.IND.NOM\",\"word\":\"flexibilitet\"},{\"lemma\":\"|i|\",\"msd\":\"PP\",\"word\":\"i\"},{\"lemma\":\"|fr\u00e5ga|\",\"msd\":\"NN.UTR.SIN.IND.NOM\",\"word\":\"fr\u00e5ga\"},{\"lemma\":\"|om|\",\"msd\":\"PP\",\"word\":\"om\"},{\"lemma\":\"|verksamhetsform|\",\"msd\":\"NN.UTR.PLU.IND.NOM\",\"word\":\"verksamhetsformer\"},{\"lemma\":\"|och|\",\"msd\":\"KN\",\"word\":\"och\"},{\"lemma\":\"|arbetss\u00e4tt|\",\"msd\":\"NN.NEU.PLU.IND.NOM\",\"word\":\"arbetss\u00e4tt\"},{\"lemma\":\"|.|\",\"msd\":\"MAD\",\"word\":\".\"}]}],\"querydata\":\"eJwzMjAxtTQ1NzExsja1NDaxDg51NrICsQBF1AWC\\\\n\",\"time\":0.7205440998077393}";
+    private static final Logger LOG = LogManager.getLogger(QueryTest.class);
 
     @Test
     public void querySerialize() {
@@ -64,7 +67,7 @@ public class QueryTest {
             e.printStackTrace();
         }
 
-        System.out.println(s);
+        LOG.info(s);
         assertEquals(jsonString, s);
     }
 
@@ -89,7 +92,7 @@ public class QueryTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         assertEquals(jsonString, roundTripString);
         assertEquals(q2.getTime(), new Double("0.7205440998077393"));
 
@@ -118,7 +121,7 @@ public class QueryTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         // assertEquals(jsonString, roundTripString);
         assertEquals(q3.getTime(), new Double("0.7205440998077393"));
 
@@ -167,7 +170,7 @@ public class QueryTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         // assertEquals(jsonString, roundTripString);
         assertNotNull(q4.getTime());
 
@@ -201,7 +204,7 @@ public class QueryTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         // assertEquals(jsonString, roundTripString);
         assertNotNull(q4.getHits());
         assertEquals(new Integer("-1"), q4.getHits());

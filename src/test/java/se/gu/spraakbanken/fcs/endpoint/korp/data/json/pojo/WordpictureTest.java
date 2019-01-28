@@ -13,12 +13,15 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.wordpicture.Relation;
 import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.wordpicture.Wordpicture;
 
 public class WordpictureTest {
     private String jsonString =
             "{\"relations\":[{\"dep\":\"pappa..nn.1\",\"depextra\":\"\",\"deppos\":\"NN\",\"freq\":20,\"head\":\"ge..vb.1\",\"headpos\":\"VB\",\"mi\":22.20880511167489,\"rel\":\"SS\",\"source\":[\"ROMI:230203\"]}],\"time\":0.002602100372314453}";
+    private static final Logger LOG = LogManager.getLogger(WordpictureTest.class);
 
 
     @Test
@@ -52,7 +55,7 @@ public class WordpictureTest {
             e.printStackTrace();
         }
 
-        System.out.println(s);
+        LOG.info(s);
         assertEquals(jsonString, s);
     }
 
@@ -77,7 +80,7 @@ public class WordpictureTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         assertEquals(jsonString, roundTripString);
         assertEquals(wp2.getTime(), new Double("0.002602100372314453"));
 
@@ -113,7 +116,7 @@ public class WordpictureTest {
             e.printStackTrace();
         }
 
-        System.out.println(roundTripString);
+        LOG.info(roundTripString);
         // assertEquals(jsonString, roundTripString);
         assertEquals("ROMIROMI:230203", wp4.getRelations().get(0).getSource().get(0));
         assertNotNull(wp4.getTime());

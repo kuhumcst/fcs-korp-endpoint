@@ -16,6 +16,8 @@ import javax.servlet.ServletException;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.testing.ServletTester;
 import org.junit.AfterClass;
@@ -46,6 +48,8 @@ public class KorpEndpointSearchEngineTest {
 	private static ServletTester tester;
 	private static ServletHolder holder;
 	private static HashMap<String, String> params;
+
+	private static final Logger LOG = LogManager.getLogger(KorpEndpointSearchEngineTest.class);
 
 	@BeforeClass
 	public static void parseEndpointDescription() throws SRUConfigException {
@@ -87,9 +91,9 @@ public class KorpEndpointSearchEngineTest {
 		try {
 			// tester.setAttribute(SRUServerServlet.SRU_SERVER_CONFIG_LOCATION_PARAM,
 			// "src/main/webapp/WEB-INF/sru-server-config.xml");
-			System.out.println("tester.getAttribute():"
+			LOG.info("tester.getAttribute():"
 					+ tester.getAttribute(SRUServerServlet.SRU_SERVER_CONFIG_LOCATION_PARAM));
-			// System.out.println(holder.getServlet().getServletConfig().getInitParameter(SRUServerServlet.SRU_SERVER_CONFIG_LOCATION_PARAM));
+			// LOG.info(holder.getServlet().getServletConfig().getInitParameter(SRUServerServlet.SRU_SERVER_CONFIG_LOCATION_PARAM));
 			tester.start();
 
 		} catch (Exception e) {
@@ -115,10 +119,10 @@ public class KorpEndpointSearchEngineTest {
 		config = SRUServerConfig.parse(params, url);
 		kese = new KorpEndpointSearchEngine();
 
-		System.out.println(config.getBaseUrl());
-		System.out.println(config.getDatabase());
+		LOG.info(config.getBaseUrl());
+		LOG.info(config.getDatabase());
 
-		// System.out.println(holder.getServlet().getServletInfo());
+		// LOG.info(holder.getServlet().getServletInfo());
 
 		kese.doInit(config, new SRUQueryParserRegistry.Builder().register(new FCSQueryParser()),
 				params);
@@ -138,7 +142,7 @@ public class KorpEndpointSearchEngineTest {
 
 	@Test
 	public void getDataViewsFromDescription() throws SRUConfigException {
-		System.out.println(sed.getSupportedDataViews());
+		LOG.info(sed.getSupportedDataViews().toString());
 		assertEquals("hits", sed.getSupportedDataViews().get(0).getIdentifier());
 		assertEquals("SEND_BY_DEFAULT",
 				sed.getSupportedDataViews().get(0).getDeliveryPolicy().toString());
@@ -151,7 +155,7 @@ public class KorpEndpointSearchEngineTest {
 
 	@Test
 	public void getLayersFromDescription() throws SRUConfigException {
-		System.out.println(sed.getSupportedLayers());
+		LOG.info(sed.getSupportedLayers().toString());
 		assertEquals("http://clarin.dk/ns/fcs/layer/word",
 				sed.getSupportedLayers().get(0).getResultId().toString());
 		assertEquals("lemma", sed.getSupportedLayers().get(1).getType().toString());
@@ -160,7 +164,7 @@ public class KorpEndpointSearchEngineTest {
 	@Test
 	public void getResourcesFromDescription() throws SRUException {
 		List<ResourceInfo> riList = sed.getResourceList("hdl:20.500.12115/LSPkorpora");
-		System.out.println(riList.get(0).getTitle());
+		LOG.info(riList.get(0).getTitle().toString());
 		assertEquals("hits", riList.get(0).getAvailableDataViews().get(0).getIdentifier());
 		assertEquals("SEND_BY_DEFAULT",
 				riList.get(0).getAvailableDataViews().get(0).getDeliveryPolicy().toString());
@@ -187,7 +191,7 @@ public class KorpEndpointSearchEngineTest {
 		final String resActual = FCSToCQPConverter.makeCQPFromCQL(
 				(new CQLQueryParser()).parseQuery(SRUVersion.VERSION_2_0, params, diagnostics));
 
-		System.out.println(resActual);
+		LOG.info(resActual);
 		assertEquals(res, resActual);
 	}
 
@@ -201,7 +205,7 @@ public class KorpEndpointSearchEngineTest {
 		final String resActual = FCSToCQPConverter.makeCQPFromFCS(
 				(new FCSQueryParser()).parseQuery(SRUVersion.VERSION_2_0, params, diagnostics));
 
-		System.out.println(resActual);
+		LOG.info(resActual);
 		assertEquals(res, resActual);
 	}
 
@@ -215,7 +219,7 @@ public class KorpEndpointSearchEngineTest {
 		final String resActual = FCSToCQPConverter.makeCQPFromFCS(
 				(new FCSQueryParser()).parseQuery(SRUVersion.VERSION_2_0, params, diagnostics));
 
-		System.out.println(resActual);
+		LOG.info(resActual);
 		assertEquals(res, resActual);
 	}
 
@@ -229,7 +233,7 @@ public class KorpEndpointSearchEngineTest {
 		final String resActual = FCSToCQPConverter.makeCQPFromFCS(
 				(new FCSQueryParser()).parseQuery(SRUVersion.VERSION_2_0, params, diagnostics));
 
-		System.out.println(resActual);
+		LOG.info(resActual);
 		assertEquals(res, resActual);
 	}
 
@@ -243,7 +247,7 @@ public class KorpEndpointSearchEngineTest {
 		final String resActual = FCSToCQPConverter.makeCQPFromFCS(
 				(new FCSQueryParser()).parseQuery(SRUVersion.VERSION_2_0, params, diagnostics));
 
-		System.out.println(resActual);
+		LOG.info(resActual);
 		assertEquals(res, resActual);
 	}
 
@@ -257,7 +261,7 @@ public class KorpEndpointSearchEngineTest {
 		final String resActual = FCSToCQPConverter.makeCQPFromFCS(
 				(new FCSQueryParser()).parseQuery(SRUVersion.VERSION_2_0, params, diagnostics));
 
-		System.out.println(resActual);
+		LOG.info(resActual);
 		assertEquals(res.trim(), resActual.trim());
 	}
 
@@ -271,7 +275,7 @@ public class KorpEndpointSearchEngineTest {
 		final String resActual = FCSToCQPConverter.makeCQPFromFCS(
 				(new FCSQueryParser()).parseQuery(SRUVersion.VERSION_2_0, params, diagnostics));
 
-		System.out.println(resActual);
+		LOG.info(resActual);
 		assertEquals(res.trim(), resActual.trim());
 	}
 
@@ -286,7 +290,7 @@ public class KorpEndpointSearchEngineTest {
 		final String resActual = FCSToCQPConverter.makeCQPFromFCS(
 				(new FCSQueryParser()).parseQuery(SRUVersion.VERSION_2_0, params, diagnostics));
 
-		System.out.println(resActual);
+		LOG.info(resActual);
 		// This fails right now since you get d too!
 		assertEquals(res.trim(), resActual.trim());
 	}
@@ -301,7 +305,7 @@ public class KorpEndpointSearchEngineTest {
 		final String resActual = FCSToCQPConverter.makeCQPFromFCS(
 				(new FCSQueryParser()).parseQuery(SRUVersion.VERSION_2_0, params, diagnostics));
 
-		System.out.println(resActual);
+		LOG.info(resActual);
 		assertEquals(res, resActual);
 	}
 
@@ -315,7 +319,7 @@ public class KorpEndpointSearchEngineTest {
 		final String resActual = FCSToCQPConverter.makeCQPFromFCS(
 				(new FCSQueryParser()).parseQuery(SRUVersion.VERSION_2_0, params, diagnostics));
 
-		System.out.println(resActual);
+		LOG.info(resActual);
 		assertEquals(res, resActual);
 	}
 
@@ -336,10 +340,10 @@ public class KorpEndpointSearchEngineTest {
 		XMLStreamWriter xmlStreamWriter = xmlOutputFactory.createXMLStreamWriter(sw);
 
 		try {
-			System.out.println("getCurrentRecordCursor 0: " + kssrs.getCurrentRecordCursor());
+			LOG.info("getCurrentRecordCursor 0: " + kssrs.getCurrentRecordCursor());
 			if (kssrs.nextRecord()) {
 				kssrs.writeRecord(xmlStreamWriter);
-				System.out.println("search1: " + sw.toString());
+				LOG.info("search1: " + sw.toString());
 			}
 			xmlStreamWriter.flush();
 			xmlStreamWriter.close();
@@ -347,10 +351,10 @@ public class KorpEndpointSearchEngineTest {
 			xmlStreamWriter.close();
 		}
 
-		System.out.println("getHits: " + queryRes.getHits());
-		System.out.println("getTotalRecordCount: " + kssrs.getTotalRecordCount());
-		System.out.println("getRecordCount: " + kssrs.getRecordCount());
-		System.out.println("getCurrentRecordCursor 1: " + kssrs.getCurrentRecordCursor());
+		LOG.info("getHits: " + queryRes.getHits());
+		LOG.info("getTotalRecordCount: " + kssrs.getTotalRecordCount());
+		LOG.info("getRecordCount: " + kssrs.getRecordCount());
+		LOG.info("getCurrentRecordCursor 1: " + kssrs.getCurrentRecordCursor());
 		assertNotNull(sw.toString());
 	}
 

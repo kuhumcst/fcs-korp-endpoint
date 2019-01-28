@@ -11,6 +11,8 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.info.CorporaInfo;
 import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.info.Corpus;
@@ -20,6 +22,7 @@ import se.gu.spraakbanken.fcs.endpoint.korp.data.json.pojo.info.CorpusMetaInfo;
 public class CorporaInfoTest {
 	private String jsonString =
 			"{\"corpora\":{\"PAROLE\":{\"attrs\":{\"a\":[],\"p\":[\"word\",\"pos\",\"msd\",\"lemma\",\"lex\",\"saldo\",\"prefix\",\"suffix\",\"ref\",\"dephead\",\"deprel\"],\"s\":[\"sentence\",\"sentence_id\",\"text\",\"text_id\",\"text_date\",\"text_title\",\"text_publisher\",\"text_datefrom\",\"text_dateto\",\"text_timefrom\",\"text_timeto\"]},\"info\":{\"Charset\":\"utf8\",\"FirstDate\":\"1976-01-01 00:00:00\",\"LastDate\":\"1997-06-16 23:59:59\",\"Saldo\":\"73089\",\"Sentences\":\"1646688\",\"Size\":\"24331936\",\"Updated\":\"2016-03-15\"}},\"ROMI\":{\"attrs\":{\"a\":[],\"p\":[\"word\",\"pos\",\"msd\",\"lemma\",\"lex\",\"saldo\",\"prefix\",\"suffix\",\"ref\",\"dephead\",\"deprel\"],\"s\":[\"sentence\",\"sentence_id\",\"text\",\"text_title\",\"text_datefrom\",\"text_dateto\",\"text_timefrom\",\"text_timeto\",\"paragraph\",\"paragraph_n\",\"text_author\",\"text_year\"]},\"info\":{\"Charset\":\"utf8\",\"FirstDate\":\"1976-01-01 00:00:00\",\"LastDate\":\"1977-12-31 23:59:59\",\"Saldo\":\"73089\",\"Sentences\":\"499030\",\"Size\":\"6579220\",\"Updated\":\"2015-12-18\"}}},\"time\":4.41E-4,\"total_sentences\":2145718,\"total_size\":30911156}";
+	private static final Logger LOG = LogManager.getLogger(CorporaInfoTest.class);
 
 	@Test
 	public void corporaInfoSerialize() {
@@ -134,7 +137,8 @@ public class CorporaInfoTest {
 			e.printStackTrace();
 		}
 
-		System.out.println(s);
+		LOG.info(s);
+
 		assertEquals(jsonString, s);
 	}
 
@@ -159,7 +163,8 @@ public class CorporaInfoTest {
 			e.printStackTrace();
 		}
 
-		System.out.println(roundTripString);
+		LOG.info(roundTripString);
+
 		assertEquals(jsonString, roundTripString);
 		assertEquals(ci2.getTime(), new Double("0.000441"));
 
@@ -193,7 +198,8 @@ public class CorporaInfoTest {
 			e.printStackTrace();
 		}
 
-		System.out.println(roundTripString);
+		LOG.info(roundTripString);
+
 		// assertEquals(jsonString, roundTripString);
 		assertNotNull(ci4.getTime());
 	}

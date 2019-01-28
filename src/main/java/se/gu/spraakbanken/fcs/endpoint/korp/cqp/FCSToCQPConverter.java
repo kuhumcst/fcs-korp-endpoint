@@ -6,8 +6,8 @@ package se.gu.spraakbanken.fcs.endpoint.korp.cqp;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.z3950.zing.cql.CQLBooleanNode;
 import org.z3950.zing.cql.CQLNode;
 import org.z3950.zing.cql.CQLNotNode;
@@ -32,7 +32,7 @@ import eu.clarin.sru.server.fcs.parser.RegexFlag;
  *
  */
 public class FCSToCQPConverter {
-	private static final Logger LOG = LoggerFactory.getLogger(FCSToCQPConverter.class);
+	private static final Logger LOG = LogManager.getLogger(FCSToCQPConverter.class);
 
 	/**
 	 *
@@ -104,7 +104,6 @@ public class FCSToCQPConverter {
 	public static String makeCQPFromFCS(final SRUQuery<QueryNode> query) throws SRUException {
 		QueryNode tree = query.getParsedQuery();
 		LOG.debug("FCS-Query: {}", tree.toString());
-		// System.out.println("tree=" + tree.toString());
 		// A somewhat crude query translator
 		if (tree instanceof QuerySequence) {
 			return getQuerySequence(tree);

@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import eu.clarin.sru.server.SRUConstants;
 import eu.clarin.sru.server.SRUDiagnostic;
 import eu.clarin.sru.server.SRUDiagnosticList;
@@ -57,15 +57,14 @@ public class KorpSRUSearchResultSet extends SRUSearchResultSet {
     private CorporaInfo corporaInfo;
     private Query resultSet;
     private String resultSetId = null;
+    private int startRecord;
+    private int maximumRecords;
     private int currentRecordCursor = 0;
-    private int currentMaxRecords = 250;
-    private int currentPageMaxRecords = 100;
-    private int startRecord = 1;
-    private int maximumRecords = 1000;
-    private int recordCount; // startRecord + currentPageMaxRecords
-    // XMLStreamWriterHelper.FCS_NS private!
+    private int recordCount = 0;
+    private int totalRecordCount = -1;
+
     public static final String CLARIN_FCS_RECORD_SCHEMA = "http://clarin.eu/fcs/resource";
-    private static Logger LOG = LoggerFactory.getLogger(KorpSRUSearchResultSet.class);
+    private static Logger LOG = LogManager.getLogger(KorpSRUSearchResultSet.class);
 
     /**
      * Constructor.
@@ -83,6 +82,7 @@ public class KorpSRUSearchResultSet extends SRUSearchResultSet {
             SRUDiagnosticList diagnostics, final Query resultSet, final String query,
             final CorporaInfo corporaInfo) {
         super(diagnostics);
+
         this.serverConfig = serverConfig;
         this.request = request;
         this.resultSet = resultSet;
@@ -92,19 +92,33 @@ public class KorpSRUSearchResultSet extends SRUSearchResultSet {
         startRecord = (request.getStartRecord() < 1) ? 1 : request.getStartRecord();
         currentRecordCursor = startRecord - 1;
         maximumRecords = startRecord - 1 + request.getMaximumRecords();
-        recordCount = request.getMaximumRecords();
+
+        if (resultSet != null && resultSet.getHits() > -1) {
+            setRecordCount(
+                    (resultSet.getHits() < maximumRecords) ? resultSet.getHits() : maximumRecords);
+            setTotalRecordCount(resultSet.getHits());
+        }
+
     }
 
     protected KorpSRUSearchResultSet(SRUServerConfig serverConfig, SRUDiagnosticList diagnostics,
             final Query resultSet, final String query, final CorporaInfo corporaInfo) {
         super(diagnostics);
+
         this.serverConfig = serverConfig;
         this.resultSet = resultSet;
         this.query = query;
         this.corporaInfo = corporaInfo;
-        this.maximumRecords = 250;
-        this.currentRecordCursor = startRecord - 1;
-        this.recordCount = 250;
+
+        maximumRecords = serverConfig.getMaximumRecords();
+        currentRecordCursor = startRecord - 1;
+
+        if (resultSet != null && resultSet.getHits() > -1) {
+            setRecordCount(
+                    (resultSet.getHits() < maximumRecords) ? resultSet.getHits() : maximumRecords);
+            setTotalRecordCount(resultSet.getHits());
+        }
+
     }
 
     /**
@@ -115,10 +129,7 @@ public class KorpSRUSearchResultSet extends SRUSearchResultSet {
      *         cannot determine the total number of results
      */
     public int getTotalRecordCount() {
-        if (resultSet != null) {
-            return resultSet.getHits();
-        }
-        return -1;
+        return totalRecordCount;
     }
 
     /**
@@ -128,10 +139,7 @@ public class KorpSRUSearchResultSet extends SRUSearchResultSet {
      * @return the number of results or 0 if the query failed
      */
     public int getRecordCount() {
-        if (resultSet != null && resultSet.getHits() > -1) {
-            return resultSet.getHits() < maximumRecords ? resultSet.getHits() : maximumRecords;
-        }
-        return 0;
+        return recordCount;
     }
 
     /**
@@ -330,6 +338,132 @@ public class KorpSRUSearchResultSet extends SRUSearchResultSet {
      * @see #hasExtraRecordData()
      */
     public void writeExtraRecordData(XMLStreamWriter writer) throws XMLStreamException {
+    }
+
+    /**
+     * @return the serverConfig
+     */
+    public SRUServerConfig getServerConfig() {
+        return serverConfig;
+    }
+
+    /**
+     * @param serverConfig the serverConfig to set
+     */
+    public void setServerConfig(SRUServerConfig serverConfig) {
+        this.serverConfig = serverConfig;
+    }
+
+    /**
+     * @return the request
+     */
+    public SRURequest getRequest() {
+        return request;
+    }
+
+    /**
+     * @param request the request to set
+     */
+    public void setRequest(SRURequest request) {
+        this.request = request;
+    }
+
+    /**
+     * @return the query
+     */
+    public String getQuery() {
+        return query;
+    }
+
+    /**
+     * @param query the query to set
+     */
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    /**
+     * @return the corporaInfo
+     */
+    public CorporaInfo getCorporaInfo() {
+        return corporaInfo;
+    }
+
+    /**
+     * @param corporaInfo the corporaInfo to set
+     */
+    public void setCorporaInfo(CorporaInfo corporaInfo) {
+        this.corporaInfo = corporaInfo;
+    }
+
+    /**
+     * @return the resultSet
+     */
+    public Query getResultSet() {
+        return resultSet;
+    }
+
+    /**
+     * @param resultSet the resultSet to set
+     */
+    public void setResultSet(Query resultSet) {
+        this.resultSet = resultSet;
+    }
+
+    /**
+     * @param resultSetId the resultSetId to set
+     */
+    public void setResultSetId(String resultSetId) {
+        this.resultSetId = resultSetId;
+    }
+
+    /**
+     * @param currentRecordCursor the currentRecordCursor to set
+     */
+    public void setCurrentRecordCursor(int currentRecordCursor) {
+        this.currentRecordCursor = currentRecordCursor;
+    }
+
+    /**
+     * @return the startRecord
+     */
+    public int getStartRecord() {
+        return startRecord;
+    }
+
+    /**
+     * @param startRecord the startRecord to set
+     */
+    public void setStartRecord(int startRecord) {
+        this.startRecord = startRecord;
+    }
+
+    /**
+     * @return the maximumRecords
+     */
+    public int getMaximumRecords() {
+        return maximumRecords;
+    }
+
+    /**
+     * @param maximumRecords the maximumRecords to set
+     */
+    public void setMaximumRecords(int maximumRecords) {
+        this.maximumRecords = maximumRecords;
+    }
+
+    /**
+     * @param recordCount the recordCount to set
+     */
+    private void setRecordCount(int recordCount) {
+        this.recordCount = recordCount;
+    }
+
+    /**
+     * @param totalRecordCount the totalRecordCount to set
+     */
+    private void setTotalRecordCount(int totalRecordCount) {
+        this.totalRecordCount = totalRecordCount;
     }
 
 }
