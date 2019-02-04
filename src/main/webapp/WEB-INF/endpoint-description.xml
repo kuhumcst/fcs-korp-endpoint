@@ -51,7 +51,7 @@
 							<AvailableDataViews ref="hits adv" />
 							<AvailableLayers ref="word lemma pos" />
 						</Resource>
-						<Resource pid="hdl:20.500.12115/17">
+						<!--<Resource pid="hdl:20.500.12115/17">
 							<Title xml:lang="dk">DK-CLARIN Fagsprogligt Korpus - Landbrug</Title>
 							<Title xml:lang="en">DK-CLARIN LSP Corpus - Agriculture domain</Title>
 							<Description xml:lang="dk">Korpusset blev udviklet som en del af det danske CLARIN-projekt (DK-CLARIN).</Description>
@@ -62,7 +62,7 @@
 							</Languages>
 							<AvailableDataViews ref="hits adv" />
 							<AvailableLayers ref="word lemma pos" />
-						</Resource>
+						</Resource>-->
 					</Resources>
 				</Resource>
 			</Resources>
