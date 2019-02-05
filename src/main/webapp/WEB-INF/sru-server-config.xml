@@ -2,7 +2,7 @@
 <endpoint-config xmlns="http://www.clarin.eu/sru-server/1.0/">
     <databaseInfo>
         <title xml:lang="dk">CLARIN-DK korpora</title>
-        <title xml:lang="en" primary="true">CLARIN-DK tekstkorpora</title>
+        <title xml:lang="en" primary="true">CLARIN-DK corpora</title>
         <description xml:lang="dk">Søg i de CLARIN-DK tekstkorpora.</description>
         <description xml:lang="en" primary="true">Search in the CLARIN-DK text corpora.</description>
         <author xml:lang="en">Centre for Language Technology, NorS, University of Copenhagen</author>
