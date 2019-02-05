@@ -16,8 +16,8 @@
 	</SupportedLayers>
 	<Resources>
 		<Resource pid="hdl:20.500.12115/3">
-			<Title xml:lang="dk">CLARIN-DK Korpora</Title>
-			<Title xml:lang="en">CLARIN-DK Corpora</Title>
+			<Title xml:lang="dk">CLARIN-DK korpora</Title>
+			<Title xml:lang="en">CLARIN-DK corpora</Title>
 			<Description xml:lang="dk">Korpora hos CLARIN-DK Datacenter</Description>
 			<Description xml:lang="en">The corpora at CLARIN-DK Data Centre</Description>
 			<LandingPageURI></LandingPageURI><!--TODO landing page info.clarin.dk -->
@@ -42,9 +42,9 @@
 						<Resource pid="hdl:20.500.12115/9">
 							<Title xml:lang="dk">DK-CLARIN Fagsprogligt Korpus - Byggeri og anlæg</Title>
 							<Title xml:lang="en">DK-CLARIN LSP Corpus - Construction domain</Title>
-							<Description xml:lang="dk">Korpusset blev udviklet som en del af det danske CLARIN-projekt (DK-CLARIN).</Description>
-							<Description xml:lang="en">Texts in the Construction Domain come from Statens Byggeforskningsinstitut, Erhvervs- og byggestyrelsen and Murerfagets Oplysningsråd.</Description>
-							<LandingPageURI>https://repository.clarin.dk/repository/xmlui/handle/20.500.12115/9</LandingPageURI>
+							<Description xml:lang="dk">Korpusset er indsamlet fra Statens Byggeforskningsinstitut, Erhvervs- og byggestyrelsen og Murerfagets Oplysningsråd af projektet DK-CLARIN.</Description>
+							<Description xml:lang="en">Construction Domain Corpus has been collected from Statens Byggeforskningsinstitut, Erhvervs- og byggestyrelsen and Murerfagets Oplysningsråd as part of the DK-CLARIN project.</Description>
+							<LandingPageURI>http://hdl.handle.net/20.500.12115/9</LandingPageURI>
 							<Languages>
 								<Language>dan</Language>
 							</Languages>
