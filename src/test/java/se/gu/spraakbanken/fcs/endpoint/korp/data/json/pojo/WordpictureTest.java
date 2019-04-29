@@ -99,7 +99,7 @@ public class WordpictureTest {
 
 	Wordpicture wp4 = null;
 	String roundTripString = "";
-	String wsString ="https://spraakbanken.gu.se/ws/korp/v6/?";
+	String wsString ="https://ws.spraakbanken.gu.se/ws/korp/v6/?";
 	String queryString = "command=relations&word=ge..vb.1&type=lemgram&corpus=ROMI";
 
         try {
