@@ -7,65 +7,43 @@
 	<SupportedDataViews>
 		<SupportedDataView id="hits" delivery-policy="send-by-default">application/x-clarin-fcs-hits+xml</SupportedDataView>
 		<SupportedDataView id="adv" delivery-policy="send-by-default">application/x-clarin-fcs-adv+xml</SupportedDataView>
-		<SupportedDataView id="cmdi" delivery-policy="need-to-request">application/x-cmdi+xml</SupportedDataView>
+		<!--<SupportedDataView id="cmdi" delivery-policy="need-to-request">application/x-cmdi+xml</SupportedDataView>-->
 	</SupportedDataViews>
 	<SupportedLayers>
 		<SupportedLayer id="word" result-id="http://clarin.dk/ns/fcs/layer/word">text</SupportedLayer>
-		<SupportedLayer id="lemma" result-id="http://clarin.dk/ns/fcs/layer/lemma">lemma</SupportedLayer>
+		<!--<SupportedLayer id="lemma" result-id="http://clarin.dk/ns/fcs/layer/lemma">lemma</SupportedLayer>-->
 		<SupportedLayer id="pos" result-id="http://clarin.dk/ns/fcs/layer/pos">pos</SupportedLayer>
 	</SupportedLayers>
+	<!--
+		Test at: https://contentsearch.clarin.eu/
+
+		Currently, lemma does not work, so I've removed it from AvailableLayers.
+		~Simon
+	-->
 	<Resources>
-		<Resource pid="hdl:20.500.12115/3">
-			<Title xml:lang="dk">CLARIN-DK korpora</Title>
-			<Title xml:lang="en">CLARIN-DK corpora</Title>
-			<Description xml:lang="dk">Korpora hos CLARIN-DK Datacenter</Description>
-			<Description xml:lang="en">The corpora at CLARIN-DK Data Centre</Description>
-			<LandingPageURI></LandingPageURI><!--TODO landing page info.clarin.dk -->
+		<Resource pid="hdl:20.500.12115/9">
+			<Title xml:lang="da">DK-CLARIN Fagsprogligt Korpus - Byggeri og anlæg</Title>
+			<Title xml:lang="en">DK-CLARIN LSP Corpus - Construction domain</Title>
+			<Description xml:lang="da">Korpusset er indsamlet fra Statens Byggeforskningsinstitut, Erhvervs- og byggestyrelsen og Murerfagets Oplysningsråd af projektet DK-CLARIN.</Description>
+			<Description xml:lang="en">Construction Domain Corpus has been collected from Statens Byggeforskningsinstitut, Erhvervs- og byggestyrelsen and Murerfagets Oplysningsråd as part of the DK-CLARIN project.</Description>
+			<LandingPageURI>http://hdl.handle.net/20.500.12115/9</LandingPageURI>
 			<Languages>
 				<Language>dan</Language>
 			</Languages>
 			<AvailableDataViews ref="hits adv" />
-			<AvailableLayers ref="word lemma pos" />
-			<Resources>
-				<Resource pid="hdl:20.500.12115/LSPkorpora">
-					<Title xml:lang="dk">DK-CLARIN Fagsprogligt Korpus (LSP)</Title>
-					<Title xml:lang="en">DK-CLARIN LSP (Language for Special Purposes) Corpus</Title>
-					<Description xml:lang="dk">Det omfatter tekster på i alt ca. 11 mio. løbende ord fordelt på 7 domæner nemlig sundhed og medicin, klima og miljø, økonomi, landbrug, it, bygge- og anlæg samt nanoteknologi.</Description>
-					<Description xml:lang="en">The DK-CLARIN LSP corpus comprises 11 M tokens from the period 2000-2010, complementing the existing Danish general language corpora.</Description>
-					<LandingPageURI></LandingPageURI><!--TODO landing page info.clarin.dk -->
-					<Languages>
-						<Language>dan</Language>
-					</Languages>
-					<AvailableDataViews ref="hits adv" />
-					<AvailableLayers ref="word lemma pos" />
-					<Resources>
-						<Resource pid="hdl:20.500.12115/9">
-							<Title xml:lang="dk">DK-CLARIN Fagsprogligt Korpus - Byggeri og anlæg</Title>
-							<Title xml:lang="en">DK-CLARIN LSP Corpus - Construction domain</Title>
-							<Description xml:lang="dk">Korpusset er indsamlet fra Statens Byggeforskningsinstitut, Erhvervs- og byggestyrelsen og Murerfagets Oplysningsråd af projektet DK-CLARIN.</Description>
-							<Description xml:lang="en">Construction Domain Corpus has been collected from Statens Byggeforskningsinstitut, Erhvervs- og byggestyrelsen and Murerfagets Oplysningsråd as part of the DK-CLARIN project.</Description>
-							<LandingPageURI>http://hdl.handle.net/20.500.12115/9</LandingPageURI>
-							<Languages>
-								<Language>dan</Language>
-							</Languages>
-							<AvailableDataViews ref="hits adv" />
-							<AvailableLayers ref="word lemma pos" />
-						</Resource>
-						<!--<Resource pid="hdl:20.500.12115/17">
-							<Title xml:lang="dk">DK-CLARIN Fagsprogligt Korpus - Landbrug</Title>
-							<Title xml:lang="en">DK-CLARIN LSP Corpus - Agriculture domain</Title>
-							<Description xml:lang="dk">Korpusset blev udviklet som en del af det danske CLARIN-projekt (DK-CLARIN).</Description>
-							<Description xml:lang="en">Texts in the Agriculture domain come from Danmarks JordbrugsForskning.</Description>
-							<LandingPageURI>https://repository.clarin.dk/repository/xmlui/handle/20.500.12115/17</LandingPageURI>
-							<Languages>
-								<Language>dan</Language>
-							</Languages>
-							<AvailableDataViews ref="hits adv" />
-							<AvailableLayers ref="word lemma pos" />
-						</Resource>-->
-					</Resources>
-				</Resource>
-			</Resources>
+			<AvailableLayers ref="word pos" />
 		</Resource>
+		<Resource pid="hdl:20.500.12115/17">
+            <Title xml:lang="da">DK-CLARIN Fagsprogligt Korpus - Landbrug</Title>
+            <Title xml:lang="en">DK-CLARIN LSP Corpus - Agriculture domain</Title>
+            <Description xml:lang="da">Korpusset blev udviklet som en del af det danske CLARIN-projekt (DK-CLARIN).</Description>
+            <Description xml:lang="en">Texts in the Agriculture domain come from Danmarks JordbrugsForskning.</Description>
+            <LandingPageURI>http://hdl.handle.net/20.500.12115/17</LandingPageURI>
+            <Languages>
+                <Language>dan</Language>
+            </Languages>
+            <AvailableDataViews ref="hits adv" />
+            <AvailableLayers ref="word pos" />
+        </Resource>
 	</Resources>
 </EndpointDescription>
