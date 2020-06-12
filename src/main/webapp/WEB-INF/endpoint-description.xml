@@ -11,7 +11,8 @@
 	</SupportedDataViews>
 	<SupportedLayers>
 		<SupportedLayer id="word" result-id="http://clarin.dk/ns/fcs/layer/word">text</SupportedLayer>
-		<!--<SupportedLayer id="lemma" result-id="http://clarin.dk/ns/fcs/layer/lemma">lemma</SupportedLayer>-->
+		<!-- TODO: fix lemma search - layer seems to not work. -->
+		<SupportedLayer id="lemma" result-id="http://clarin.dk/ns/fcs/layer/lemma">lemma</SupportedLayer>
 		<SupportedLayer id="pos" result-id="http://clarin.dk/ns/fcs/layer/pos">pos</SupportedLayer>
 	</SupportedLayers>
 	<!--
@@ -31,7 +32,7 @@
 				<Language>dan</Language>
 			</Languages>
 			<AvailableDataViews ref="hits adv" />
-			<AvailableLayers ref="word pos" />
+			<AvailableLayers ref="word pos lemma" />
 		</Resource>
 		<Resource pid="hdl:20.500.12115/17">
             <Title xml:lang="da">DK-CLARIN Fagsprogligt Korpus - Landbrug</Title>
@@ -43,7 +44,7 @@
                 <Language>dan</Language>
             </Languages>
             <AvailableDataViews ref="hits adv" />
-            <AvailableLayers ref="word pos" />
+            <AvailableLayers ref="word pos lemma" />
         </Resource>
 	</Resources>
 </EndpointDescription>
