@@ -34,6 +34,7 @@
 			<AvailableDataViews ref="hits adv" />
 			<AvailableLayers ref="word pos lemma" />
 		</Resource>
+
 		<Resource pid="hdl:20.500.12115/17">
             <Title xml:lang="da">DK-CLARIN Fagsprogligt Korpus - Landbrug</Title>
             <Title xml:lang="en">DK-CLARIN LSP Corpus - Agriculture domain</Title>
@@ -46,5 +47,66 @@
             <AvailableDataViews ref="hits adv" />
             <AvailableLayers ref="word pos lemma" />
         </Resource>
+
+		<Resource pid="hdl:20.500.12115/15">
+			<Title xml:lang="da">DK-CLARIN Fagsprogligt Korpus - IT</Title>
+			<Title xml:lang="en">DK-CLARIN LSP Corpus - IT domain</Title>
+			<Description xml:lang="en">Texts in the IT Domain come from Libris, Open Office, Aktuel Naturvidenskab and have been collected in the DK-CLARIN project.</Description>
+			<LandingPageURI>http://hdl.handle.net/20.500.12115/15</LandingPageURI>
+			<Languages>
+				<Language>dan</Language>
+			</Languages>
+			<AvailableDataViews ref="hits adv" />
+			<AvailableLayers ref="word pos lemma" />
+		</Resource>
+
+		<Resource pid="hdl:20.500.12115/14">
+			<Title xml:lang="da">DK-CLARIN Fagsprogligt Korpus - Sundhed</Title>
+			<Title xml:lang="en">DK-CLARIN LSP Corpus - Health domain</Title>
+			<Description xml:lang="en">Texts in the Health and Medicine Domain come from netpatient.dk, Søfartsstyrelsen, Sundhedsstyrelsen, regionH, Libris, Aktuel Naturvidenskab and have been collected in the DK-CLARIN project.</Description>
+			<LandingPageURI>http://hdl.handle.net/20.500.12115/14</LandingPageURI>
+			<Languages>
+				<Language>dan</Language>
+			</Languages>
+			<AvailableDataViews ref="hits adv" />
+			<AvailableLayers ref="word pos lemma" />
+		</Resource>
+
+		<Resource pid="hdl:20.500.12115/13">
+			<Title xml:lang="da">DK-CLARIN Fagsprogligt Korpus - Miljø</Title>
+			<Title xml:lang="en">DK-CLARIN LSP Corpus - Environment domain</Title>
+			<Description xml:lang="en">Texts in the Environment Domain come from Hovedland, Danske Miljøundersøgelser, Det Økologiske Råd and Aktuel Naturvidenskab(via DMI).</Description>
+			<LandingPageURI>http://hdl.handle.net/20.500.12115/13</LandingPageURI>
+			<Languages>
+				<Language>dan</Language>
+			</Languages>
+			<AvailableDataViews ref="hits adv" />
+			<AvailableLayers ref="word pos lemma" />
+		</Resource>
+
+		<Resource pid="hdl:20.500.12115/11">
+			<Title xml:lang="da">DK-CLARIN Fagsprogligt Korpus - Økonomi</Title>
+			<Title xml:lang="en">DK-CLARIN LSP Corpus - Economics domain</Title>
+			<Description xml:lang="en">Texts in the Economics domain come from SKAT, Finanstilsynet and Erhvervs- og Selskabsstyrelsen and have been collected in the DK-CLARIN project.</Description>
+			<LandingPageURI>http://hdl.handle.net/20.500.12115/11</LandingPageURI>
+			<Languages>
+				<Language>dan</Language>
+			</Languages>
+			<AvailableDataViews ref="hits adv" />
+			<AvailableLayers ref="word pos lemma" />
+		</Resource>
+
+		<Resource pid="hdl:20.500.12115/16">
+			<Title xml:lang="da">DK-CLARIN Fagsprogligt Korpus - Nanoteknologi</Title>
+			<Title xml:lang="en">DK-CLARIN LSP Corpus - Nanotechnology domain</Title>
+			<Description xml:lang="en">Texts in the Nanotechnology domain come from iNano (Interdisciplinary Nanoscience Center, AU), Nano (DTU), Niels Bohr Institutet, Forskningscenter Risø, Ministeriet for Sundhed og Forebyggelse (via DTU), Miljøstyrelsen, Aktuel Naturvidenskab and have been collected in the DK-CLARIN project.</Description>
+			<LandingPageURI>http://hdl.handle.net/20.500.12115/16</LandingPageURI>
+			<Languages>
+				<Language>dan</Language>
+			</Languages>
+			<AvailableDataViews ref="hits adv" />
+			<AvailableLayers ref="word pos lemma" />
+		</Resource>
+
 	</Resources>
 </EndpointDescription>
