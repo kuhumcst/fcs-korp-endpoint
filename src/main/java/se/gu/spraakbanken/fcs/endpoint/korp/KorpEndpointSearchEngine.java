@@ -62,6 +62,33 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
             "se.gu.spraakbanken.fcs.korp.sru.resourceInventoryURL";
     private static final Logger LOG = LogManager.getLogger(KorpEndpointSearchEngine.class);
 
+    /**
+     * Mapping from the PID as given in endpoint-description.xml to the local
+     * IDs used to access the corpora through CQP/KORP backend.
+     * */
+    public static final Map<String, List<String>> pidToCorpora = Map.of(
+            // Construction
+            "hdl:20.500.12115/9", List.of("lspbyggeri1", "lspbyggeri3", "lspbyggeri3c", "lspbyggeria", "lspbyggeriam", "lspbyggeriama", "lspbyggerit", "lspconstructioneb1", "lspconstructioneb2", "lspconstructionmuro", "lspconstructionsbi)"),
+
+            // Agriculture
+            "hdl:20.500.12115/17", List.of("lspagriculturejordbrugsforskning"),
+
+            // IT
+            "hdl:20.500.12115/15", List.of("lspitaktuelnaturvidenskab", "lspitlibris", "lspitoo"),
+
+            // Health
+            "hdl:20.500.12115/14", List.of("lsphealth1aktuelnaturvidenskab", "lsphealth1librissundhed", "lsphealth1netpatient", "lsphealth1regionh", "lsphealth1soefartsstyrelsen", "lsphealth1sst", "lsphealth1sundheddk1", "lsphealth2sundheddk1", "lsphealth2sundheddk2", "lsphealth2sundheddk3", "lsphealth2sundheddk4", "lsphealth2sundheddk5"),
+
+            // Environment (Climate)
+            "hdl:20.500.12115/13", List.of("lspclimateaktuelnaturvidenskab", "lspclimatedmu", "lspclimatehovedland", "lspclimateoekraad"),
+
+            // Economics
+            "hdl:20.500.12115/11", List.of("lspeconomicseos", "lspeconomicsft1", "lspeconomicsft2", "lspeconomicsskat"),
+
+            // Nanotechnology
+            "hdl:20.500.12115/16", List.of("lspnanoaktuelnaturvidenskab", "lspnanonano1", "lspnanonano2", "lspnanonano3", "lspnanonano4")
+    );
+
     protected EndpointDescription createEndpointDescription(ServletContext context,
             SRUServerConfig config, Map<String, String> params) throws SRUConfigException {
         try {
@@ -369,8 +396,11 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
             // hdl%3A20.500.12115%2F9 is the default
         }
 
+        // Map the corpora PID of the request to a list of relevant Corpora IDs.
+        List<String> relevantCorpora = pidToCorpora.get(request.getExtraRequestData("x-fcs-context"));
+        CorporaInfo relevantCorporaInfo = CorporaInfo.getCorporaInfo(relevantCorpora);
 
-        Query queryRes = makeQuery(query, openCorporaInfo, request.getStartRecord(),
+        Query queryRes = makeQuery(query, relevantCorporaInfo, request.getStartRecord(),
                 (request.getMaximumRecords() <= 0 ? config.getMaximumRecords()
                         : request.getMaximumRecords()));
         if (queryRes == null) {
@@ -378,7 +408,7 @@ public class KorpEndpointSearchEngine extends SimpleEndpointSearchEngineBase {
                     "The query execution failed by this CLARIN-FCS Endpoint.");
         }
         return new KorpSRUSearchResultSet(config, request, diagnostics, queryRes, query,
-                openCorporaInfo);
+                relevantCorporaInfo);
     }
 
     protected Query makeQuery(final String cqpQuery, CorporaInfo openCorporaInfo,
